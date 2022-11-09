@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import TriviaSelection from '../TriviaSelection/TriviaSelection';
-
+import Form from '../Form/Form';
 import './App.css';
 
 class App extends Component {
@@ -20,7 +20,7 @@ setCategory = (category) => {
       <main>
         <Routes>
           <Route path='/trivia-selection' element={ <TriviaSelection setCategory={this.setCategory} /> } />
-   
+          <Route path='/form' element={ <Form />} />
         </Routes>
       </main>
     )
