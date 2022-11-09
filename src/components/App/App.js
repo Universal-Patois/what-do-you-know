@@ -12,8 +12,12 @@ class App extends Component {
     }
   }
 
-setCategory = (category) => {
-  this.setState({triviaType: category})
+selectCategory = (event) => {
+  if(event.target.name === 'programing') {
+    this.setState({triviaType: 'programing'})
+  } else {
+    this.setState({triviaType: 'generalized'})
+  }
 }
 
 // selectApiCall = () => {
@@ -26,7 +30,7 @@ setCategory = (category) => {
     return(
       <main>
         <Routes>
-          <Route path='/' element={ <TriviaSelection setCategory={this.setCategory} /> } />
+          <Route path='/' element={ <TriviaSelection  selectCategory={this.selectCategory}/> } />
           <Route path='/form' element={ <Form triviaType={this.state.triviaType} />} />
         </Routes>
       </main>
