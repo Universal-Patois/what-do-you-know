@@ -20,12 +20,6 @@ selectCategory = (event) => {
   }
 }
 
-// selectApiCall = () => {
-//   if(this.state.triviaType === 'programing') {
-
-//   }
-// }
-
   render() {
     return(
       <main>

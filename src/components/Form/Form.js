@@ -6,16 +6,20 @@ class Form extends Component {
     super()
     this.state= {
       topics: [],
-      difficulty: [],
-      numOfQuestions: []
+      difficulty: '',
+      numOfQuestions: '',
+      topic: ''
     }
+  }
+
+  componentDidMount = () => {
+    this.setOptions(this.props.triviaType)
   }
 
   setOptions = (triviaType) => {
     const codeOptions = ['JavaScript', 'HTML', 'PHP', 'MySQL', 'WordPress']
     const generalOptions = ['Geography', 'History', 'Science & Nature', 'Science: Computers', 'Animals']
     if(triviaType === 'programing') {
-      console.log(triviaType)
       this.setState({topics: codeOptions})
     } else {
       this.setState({topics: generalOptions})
@@ -30,10 +34,8 @@ class Form extends Component {
           <h2 className="topic-title">Choose a Topic</h2>
           <Dropdown
             className="topic-dropdown"
-            options={this.setOptions}
-            // value={}
-            onSelect={(value => console.log(value))}
-            
+            options={this.state.topics}
+            onSelect={(value) => this.setState({...this.state, topic: value.value})}
           />
         </div>
         <div className="difficulty">
@@ -41,6 +43,7 @@ class Form extends Component {
           <Dropdown
             className="difficulty-dropdown"
             options={['Easy', 'Medium', 'Hard']}
+            onSelect={(value) => this.setState({...this.state, difficulty: value.value})}
           />
         </div>
         <div className="numQuestions">
@@ -48,6 +51,7 @@ class Form extends Component {
           <Dropdown
             className="numQuestions-dropdown"
             options={[5, 10, 15]}
+            onSelect={(value) => this.setState({...this.state, numOfQuestions: value.value})}
           />
         </div>
       </section>
