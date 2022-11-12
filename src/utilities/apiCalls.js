@@ -1,17 +1,13 @@
-const fetchGeneralData = async (difficulty, amount, category) => {
-  const response = await fetch(`https://quizapi.io/api/v1/questions?apiKey=fOOXMCrttW3G5ioF0nKQ3PCnmeNIW54wuCg04zQ0&category=code&difficulty=${difficulty}&limit=${amount}&tags=${category}`, {
-    method: "GET",
-    headers: new Headers ({
-      'x-api-key': 'fOOXMCrttW3G5ioF0nKQ3PCnmeNIW54wuCg04zQ0',
-    }),
-  })
-  if(!response.ok) {
-    throw Error(response.statusText + response.status)
+export const fetchGeneralData = async (amount, category, difficulty) => {
+    const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`)
+    if(!response.ok) {
+      throw Error(response.status)
+    }
+    const data = await  response.json()
+    return data
   }
-  return await response.json()
-}
-
- const fetchCodingData = async (difficulty, amount, category, ) => {
+  
+  export const fetchCodingData = async (difficulty, amount, category, ) => {
     const response = await fetch(`https://quizapi.io/api/v1/questions?apiKey=fOOXMCrttW3G5ioF0nKQ3PCnmeNIW54wuCg04zQ0&category=code&difficulty=${difficulty}&limit=${amount}&tags=${category}`, {
       method: "GET",
       headers: new Headers ({
@@ -21,6 +17,6 @@ const fetchGeneralData = async (difficulty, amount, category) => {
     if(!response.ok) {
       throw Error(response.statusText + response.status)
     }
-    return await response.json()
+    const data = await response.json()
+    return data
   }
-  

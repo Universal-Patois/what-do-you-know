@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown } from "react-dropdown-now";
+import { NavLink } from "react-router-dom";
 
 class Form extends Component {
   constructor() {
@@ -15,7 +16,7 @@ class Form extends Component {
   componentDidMount = () => {
     this.setOptions(this.props.triviaType)
   }
-
+  
   setOptions = (triviaType) => {
     const codeOptions = ['JavaScript', 'HTML', 'PHP', 'MySQL', 'WordPress']
     const generalOptions = ['Geography', 'History', 'Science & Nature', 'Science: Computers', 'Animals']
@@ -24,7 +25,48 @@ class Form extends Component {
     } else {
       this.setState({topics: generalOptions})
     }
-  }  
+  }
+
+   convertTopicToNumber = (value) => {
+    if(value.value === 'Geography') {
+      this.setState({...this.state, topic: 22})
+    } else if(value.value === 'History') {
+      this.setState({...this.state, topic: 23})
+    } else if(value.value === 'Science & Nature') {
+      this.setState({...this.state, topic: 17})
+    } else if(value.value === 'Science: Computers') {
+      this.setState({...this.state, topic: 18})
+    } else if(value.value === 'Animals'){
+      this.setState({...this.state, topic: 27})
+    } else {
+      this.setState({...this.state, topic: value.value})
+    }
+  }
+
+  convertToLowercase = (value) => {
+    if(this.state.topics.includes('Geography')) {
+     this.setState({...this.state, difficulty: value.value.toLowerCase()})
+    } else {
+      this.setState({...this.state, difficulty: value.value})
+    }
+  }
+
+  getQuestions = () => {
+    if(this.props.triviaType === 'programing') {
+      this.props.fetchCodingData(this.state.difficulty, this.state.numOfQuestions, this.state.topic)
+      .then(data => this.props.cleanCodingData(data))
+      // .then(data => )
+      .catch(error => console.log(error))
+    } else {
+      this.props.fetchGeneralData(this.state.numOfQuestions, this.state.topic, this.state.difficulty)
+      .then(data => this.props.cleanGeneralData(data))
+      .catch(error => console.log(error))
+    }
+  }
+
+  // setQuiz = () => {
+  //   const topic = 
+  // }
 
   render() {
     return (
@@ -35,7 +77,7 @@ class Form extends Component {
           <Dropdown
             className="topic-dropdown"
             options={this.state.topics}
-            onSelect={(value) => this.setState({...this.state, topic: value.value})}
+            onSelect={(value) => this.convertTopicToNumber(value)}
           />
         </div>
         <div className="difficulty">
@@ -43,7 +85,7 @@ class Form extends Component {
           <Dropdown
             className="difficulty-dropdown"
             options={['Easy', 'Medium', 'Hard']}
-            onSelect={(value) => this.setState({...this.state, difficulty: value.value})}
+            onSelect={(value) => this.convertToLowercase(value)}
           />
         </div>
         <div className="numQuestions">
@@ -54,6 +96,10 @@ class Form extends Component {
             onSelect={(value) => this.setState({...this.state, numOfQuestions: value.value})}
           />
         </div>
+        <nav>
+          <NavLink to='/'>View Saved Questions</NavLink>
+          <NavLink to='/quiz' onClick={() => this.getQuestions()}>Start Quiz!</NavLink>
+        </nav>
       </section>
     )
   }
