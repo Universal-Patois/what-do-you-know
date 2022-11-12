@@ -55,18 +55,17 @@ class Form extends Component {
     if(this.props.triviaType === 'programing') {
       this.props.fetchCodingData(this.state.difficulty, this.state.numOfQuestions, this.state.topic)
       .then(data => this.props.cleanCodingData(data))
-      // .then(data => )
+      .then(data => this.props.addQuestions(data))
+      // .then(data => console.log(data))
       .catch(error => console.log(error))
     } else {
       this.props.fetchGeneralData(this.state.numOfQuestions, this.state.topic, this.state.difficulty)
       .then(data => this.props.cleanGeneralData(data))
+      .then(data => this.props.addQuestions(data))
+      // .then(data => console.log(data))
       .catch(error => console.log(error))
     }
   }
-
-  // setQuiz = () => {
-  //   const topic = 
-  // }
 
   render() {
     return (
@@ -97,7 +96,8 @@ class Form extends Component {
           />
         </div>
         <nav>
-          <NavLink to='/'>View Saved Questions</NavLink>
+          <NavLink to='/'>Trivia Selection</NavLink>
+          <NavLink to='/saved-questions'>View Saved Questions</NavLink>
           <NavLink to='/quiz' onClick={() => this.getQuestions()}>Start Quiz!</NavLink>
         </nav>
       </section>

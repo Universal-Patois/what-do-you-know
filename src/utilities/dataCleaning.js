@@ -2,6 +2,7 @@ export const cleanCodingData = (data) => {
   return data.map(question => {
     return {
       id: question.id,
+      questionNumber: data.indexOf(question), 
       topic: question.tags[0].name,
       difficulty: question.difficulty,
       question: question.question,
@@ -13,10 +14,10 @@ export const cleanCodingData = (data) => {
 }
 
 export const cleanGeneralData = (data) => {
-  const uniqueId = Math.floor(Math.random() * 100)
   return data.results.map(question => {
     return {
-      id: uniqueId,
+      id: Math.floor(Math.random() * 100),
+      questionNumber: data.results.indexOf(question),
       topic: question.category,
       difficulty: question.difficulty,
       question: question.question,

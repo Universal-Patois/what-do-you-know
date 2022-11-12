@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import TriviaSelection from '../TriviaSelection/TriviaSelection';
 import Form from '../Form/Form';
+import Quiz from '../Quiz/Quiz';
 import './App.css';
 import { fetchCodingData, fetchGeneralData } from '../../utilities/apiCalls';
 import { cleanCodingData, cleanGeneralData } from '../../utilities/dataCleaning';
@@ -18,7 +19,7 @@ class App extends Component {
       incorrectAnswers: [],
       choices: '',
       savedQuestions: [],
-      questions: []
+      quizQuestions: []
     }
   }
 
@@ -30,7 +31,9 @@ selectCategory = (event) => {
   }
 }
 
-
+addQuestions = (quizQuestions) => {
+  this.setState({...this.state, quizQuestions: quizQuestions})
+}
 
   render() {
     return(
@@ -39,13 +42,14 @@ selectCategory = (event) => {
           <Route path='/' element={ <TriviaSelection  selectCategory={this.selectCategory}/> } />
           <Route path='/form' element={ 
           <Form 
-          triviaType={this.state.triviaType} 
-          fetchGeneralData={fetchGeneralData} 
-          fetchCodingData={fetchCodingData}
-          cleanCodingData={cleanCodingData}
-          cleanGeneralData={cleanGeneralData}
+            triviaType={this.state.triviaType} 
+            fetchGeneralData={fetchGeneralData} 
+            fetchCodingData={fetchCodingData}
+            cleanCodingData={cleanCodingData}
+            cleanGeneralData={cleanGeneralData}
+            addQuestions={this.addQuestions}
           />} />
-          
+          <Route path='/quiz' element={ <Quiz quizQuestions={this.state.quizQuestions} /> } />
         </Routes>
       </main>
     )
