@@ -1,14 +1,14 @@
 import React from "react"
 
-const Question = ({question}) => {
+const Question = ({choice1, choice2, choice3, choice4, question}) => {
   return (
     <div className="question-container">
-      <h2 className="question">{question.question}</h2>
+      <h2 className="question">{question}</h2>
        <input
           type="checkbox"
           id="question"
           name="topping"
-          value={question.choices[0]}
+          value={choice1}
           // checked={isChecked}
           // onChange={handleOnChange}
         />
@@ -17,7 +17,7 @@ const Question = ({question}) => {
           type="checkbox"
           id="question"
           name="topping"
-          value={question.choices[1]}
+          value={choice2}
           // checked={isChecked}
           // onChange={handleOnChange}
         />
@@ -26,7 +26,7 @@ const Question = ({question}) => {
           type="checkbox"
           id="question"
           name="topping"
-          value={question.choices[2]}
+          value={choice3}
           // checked={isChecked}
           // onChange={handleOnChange}
         />
@@ -35,7 +35,7 @@ const Question = ({question}) => {
           type="checkbox"
           id="question"
           name="topping"
-          value={question.choices[3]}
+          value={choice4}
           // checked={isChecked}
           // onChange={handleOnChange}
         />

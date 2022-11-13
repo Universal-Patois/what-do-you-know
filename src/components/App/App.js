@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { fetchCodingData, fetchGeneralData } from '../../utilities/apiCalls';
+import { cleanCodingData, cleanGeneralData } from '../../utilities/dataCleaning';
 import TriviaSelection from '../TriviaSelection/TriviaSelection';
 import Form from '../Form/Form';
 import Quiz from '../Quiz/Quiz';
-import './App.css';
-import { fetchCodingData, fetchGeneralData } from '../../utilities/apiCalls';
-import { cleanCodingData, cleanGeneralData } from '../../utilities/dataCleaning';
 import Question from '../Question/Question';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,10 @@ class App extends Component {
     this.state = {
       triviaType: '',
       savedQuestions: [],
-      quizQuestions: []
+      quizQuestions: [],
+      currentQuestion: '',
+      correctAnswers: [],
+      incorrectAnswers: []
     }
   }
 
@@ -27,11 +30,13 @@ selectCategory = (event) => {
 }
 
 addQuestions = (quizQuestions) => {
-  this.setState({...this.state, quizQuestions: quizQuestions})
+  this.setState({...this.state, quizQuestions: quizQuestions, currentQuestion: quizQuestions[0]})
 }
 
-getQuestion = (id) => {
-  this.state.quizQuestions.find(question => question.id === id)
+showQuestion = (id) => {
+  const question = this.state.quizQuestions.find(question => question.id === id)
+  this.setState({...this.state, currentQuestion: question})
+  console.log(this.state.currentQuestion)
 }
 
   render() {
@@ -48,8 +53,13 @@ getQuestion = (id) => {
             cleanGeneralData={cleanGeneralData}
             addQuestions={this.addQuestions}
           />} />
-          <Route path='/quiz' element={ <Quiz quizQuestions={this.state.quizQuestions} getQuestion={this.getQuestion}/> } />
-          <Route path='/quiz' element={ <Question /> } />
+          <Route path='/quiz' element={ 
+          <Quiz 
+            quizQuestions={this.state.quizQuestions} 
+            showQuestion={this.showQuestion}
+            currentQuestion={this.state.currentQuestion}
+            /> } />
+          <Route path='/quiz' element={ <Question currentQuestion={this.state.currentQuestion}/> } />
         </Routes>
       </main>
     )
