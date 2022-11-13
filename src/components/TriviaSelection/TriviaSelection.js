@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types'
 
 
 const TriviaSelection = ({selectCategory}) => {
@@ -26,3 +27,7 @@ const TriviaSelection = ({selectCategory}) => {
     )
 }
 export default TriviaSelection;
+
+TriviaSelection.propTypes = {
+  selectCategory: PropTypes.any.isRequired
+}

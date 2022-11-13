@@ -14,10 +14,10 @@ class App extends Component {
     this.state = {
       triviaType: '',
       savedQuestions: [],
-      quizQuestions: [],
-      currentQuestion: '',
       correctAnswers: [],
-      incorrectAnswers: []
+      incorrectAnswers: [],
+      quizQuestions: [],
+      currentQuestion: ''
     }
   }
 
@@ -33,10 +33,10 @@ addQuestions = (quizQuestions) => {
   this.setState({...this.state, quizQuestions: quizQuestions, currentQuestion: quizQuestions[0]})
 }
 
+
 showQuestion = (id) => {
   const question = this.state.quizQuestions.find(question => question.id === id)
   this.setState({...this.state, currentQuestion: question})
-  console.log(this.state.currentQuestion)
 }
 
   render() {
