@@ -1,9 +1,10 @@
 import React from "react"
 
-const QuestionCard = ({questionNumber}) => {
+const QuestionCard = ({questionNumber, question, getQuestion, id}) => {
   return (
     <div className="question-card">
-      <h3 className="question-card-number">{questionNumber}</h3>
+      <button onClick={() => getQuestion(id)}>Question {questionNumber}</button>
+      <h2 className="quiz-question">{question}</h2>
     </div>
   )
 }

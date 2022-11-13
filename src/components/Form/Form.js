@@ -56,13 +56,11 @@ class Form extends Component {
       this.props.fetchCodingData(this.state.difficulty, this.state.numOfQuestions, this.state.topic)
       .then(data => this.props.cleanCodingData(data))
       .then(data => this.props.addQuestions(data))
-      // .then(data => console.log(data))
       .catch(error => console.log(error))
     } else {
       this.props.fetchGeneralData(this.state.numOfQuestions, this.state.topic, this.state.difficulty)
       .then(data => this.props.cleanGeneralData(data))
       .then(data => this.props.addQuestions(data))
-      // .then(data => console.log(data))
       .catch(error => console.log(error))
     }
   }

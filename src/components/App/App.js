@@ -6,18 +6,13 @@ import Quiz from '../Quiz/Quiz';
 import './App.css';
 import { fetchCodingData, fetchGeneralData } from '../../utilities/apiCalls';
 import { cleanCodingData, cleanGeneralData } from '../../utilities/dataCleaning';
+import Question from '../Question/Question';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       triviaType: '',
-      topic: '',
-      difficulty: '',
-      question: '',
-      correctAnswer: '',
-      incorrectAnswers: [],
-      choices: '',
       savedQuestions: [],
       quizQuestions: []
     }
@@ -35,6 +30,10 @@ addQuestions = (quizQuestions) => {
   this.setState({...this.state, quizQuestions: quizQuestions})
 }
 
+getQuestion = (id) => {
+  this.state.quizQuestions.find(question => question.id === id)
+}
+
   render() {
     return(
       <main>
@@ -49,7 +48,8 @@ addQuestions = (quizQuestions) => {
             cleanGeneralData={cleanGeneralData}
             addQuestions={this.addQuestions}
           />} />
-          <Route path='/quiz' element={ <Quiz quizQuestions={this.state.quizQuestions} /> } />
+          <Route path='/quiz' element={ <Quiz quizQuestions={this.state.quizQuestions} getQuestion={this.getQuestion}/> } />
+          <Route path='/quiz' element={ <Question /> } />
         </Routes>
       </main>
     )
