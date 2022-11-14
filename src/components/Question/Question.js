@@ -1,7 +1,7 @@
 import React from "react"
 import './Question.css'
 
-const Question = ({choice1, choice2, choice3, choice4, question}) => {
+const Question = ({choice1, choice2, choice3, choice4, question, isChecked}) => {
   return (
     <div className="question-container">
       <h2 className="question">{question}</h2>
@@ -12,8 +12,7 @@ const Question = ({choice1, choice2, choice3, choice4, question}) => {
           id="question"
           name="question"
           value={choice1}
-          // checked={isChecked}
-          // onChange={handleOnChange}
+          checked={isChecked}
         />
         {choice1}
       </label>
@@ -24,8 +23,7 @@ const Question = ({choice1, choice2, choice3, choice4, question}) => {
           id="question"
           name="question"
           value={choice2}
-          // checked={isChecked}
-          // onChange={handleOnChange}
+          checked={isChecked}
         />
         {choice2}
       </label>
@@ -36,8 +34,7 @@ const Question = ({choice1, choice2, choice3, choice4, question}) => {
           id="question"
           name="question"
           value={choice3}
-          // checked={isChecked}
-          // onChange={handleOnChange}
+          checked={isChecked}
         />
         {choice3}
       </label>
@@ -48,8 +45,7 @@ const Question = ({choice1, choice2, choice3, choice4, question}) => {
           id="question"
           name="question"
           value={choice4}
-          // checked={isChecked}
-          // onChange={handleOnChange}
+          checked={isChecked}
         />
         {choice4}
       </label>
@@ -58,3 +54,13 @@ const Question = ({choice1, choice2, choice3, choice4, question}) => {
 }
 
 export default Question
+
+
+// {<Question 
+//   choice1={currentQuestion.choices["answer_a"]}
+//   choice2={currentQuestion.choices['answer_b']} 
+//   choice3={currentQuestion.choices['answer_c']} 
+//   choice4={currentQuestion.choices['answer_d']} 
+//   correctAnswer={currentQuestion.correctAnswer}
+//   id={currentQuestion.id}
+// />}

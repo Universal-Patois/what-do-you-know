@@ -1,10 +1,13 @@
+import { cleanCodingData, cleanGeneralData } from "./dataCleaning"
+
 export const fetchGeneralData = async (amount, category, difficulty) => {
     const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`)
     if(!response.ok) {
       throw Error(response.status)
     }
     const data = await  response.json()
-    return data
+    const cleanData = cleanGeneralData(data)
+    return cleanData
   }
   
   export const fetchCodingData = async (difficulty, amount, category, ) => {
@@ -18,5 +21,6 @@ export const fetchGeneralData = async (amount, category, difficulty) => {
       throw Error(response.statusText + response.status)
     }
     const data = await response.json()
-    return data
+    const cleanData = cleanCodingData(data)
+    return cleanData
   }

@@ -1,35 +1,29 @@
 export const cleanCodingData = (data) => {
-  return data.map(question => {
+  // console.log(data)
+  return data.map((question, index) => {
     return {
       id: question.id,
-      questionNumber: data.indexOf(question), 
+      questionNumber: index +1, 
       topic: question.tags[0].name,
       difficulty: question.difficulty,
       question: question.question,
       correctAnswer: question.correct_answer,
       choices: question.answers,
-      // incorrectAnswers: getIncorrectAnswers(question.correct_answers),
     }
   })
 }
 
 export const cleanGeneralData = (data) => {
-  return data.results.map(question => {
-    const choices = question.incorrect_answers.push(question.correct_answer)
+  // console.log(data)
+  return data.results.map((question, index) => {
     return {
       id: Math.floor(Math.random() * 100),
-      questionNumber: data.results.indexOf(question),
+      questionNumber: index +1,
       topic: question.category,
       difficulty: question.difficulty,
       question: question.question,
-      choices: question.incorrect_answers,
+      choices: [...question.incorrect_answers, question.correct_answer],
       correctAnswer: question.correct_answer,
     }
   })
 }
-
-// const getIncorrectAnswers = (correct_answers) => {
-//   return Object.keys(correct_answers).filter(answer => {
-//     return correct_answers[answer] === 'false'
-//   }).map(answer => answer.slice(0, 8))
-// }
