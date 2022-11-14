@@ -102,8 +102,6 @@ class Form extends Component {
 }
 
 export default Form;
-
-// import React, { Component } from "react";
 // import { Dropdown } from "react-dropdown-now";
 // import { NavLink } from "react-router-dom";
 
