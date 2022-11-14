@@ -9,8 +9,7 @@ const TriviaSelection = ({ selectCategory }) => {
       <Link to="/form">
         <button
           className="programming"
-          name="programming"
-          onClick={(event) => selectCategory(event)}
+          onClick={() => selectCategory("programming")}
         >
           Programming
         </button>
@@ -18,8 +17,7 @@ const TriviaSelection = ({ selectCategory }) => {
       <Link to="/form">
         <button
           className="generalized"
-          name="generalized"
-          onClick={(event) => selectCategory(event)}
+          onClick={() => selectCategory("generalized")}
         >
           Generalized
         </button>
@@ -33,5 +31,5 @@ const TriviaSelection = ({ selectCategory }) => {
 export default TriviaSelection;
 
 TriviaSelection.propTypes = {
-  selectCategory: PropTypes.any.isRequired,
+  selectCategory: PropTypes.func.isRequired,
 };

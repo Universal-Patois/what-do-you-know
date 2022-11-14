@@ -7,8 +7,8 @@ export const cleanCodingData = (data) => {
       topic: question.tags[0].name,
       difficulty: question.difficulty,
       question: question.question,
-      correctAnswer: question.correct_answer,
-      choices: question.answers,
+      correctAnswer: question.answers[question.correct_answer],
+      choices: Object.values(question.answers),
     }
   })
 }

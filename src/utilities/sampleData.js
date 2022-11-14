@@ -1,5 +1,4 @@
-// Quiz Api- Coding
-
+// Quiz Api- Coding: Cleaned
 {
   id: 988
   topic: 'JavaScript'
@@ -8,27 +7,8 @@
   correct_answer: "answer_a"
   choices: {answer_a: 'Math.round(7.25)', answer_b: 'round(7.25)', answer_c: 'rnd(7.25)', answer_d: 'Math.rnd(7.25)', answer_e:}
 }
-
-// Open Trivia Api
-{   id: 88
-    topic: "Geography"
-    difficulty: "hard"
-    question: "Which of these countries is NOT a part of the Asian continent?"
-    correct_answer: "Suriname"
-    choices:[ "Georgia", "Russia", "Singapore", 'Suriname']
-}
-
-// General
-0: 
-choices: ['Syria', 'Greece', 'Egypt', 'Turkey']
-correctAnswer: "Turkey"
-difficulty: "easy"
-id:29
-question: "Which modern day country is the region that was known as Phrygia in ancient times?"
-questionNumber: 0
-topic: "History"
-
-0: 
+// Quiz Api- Coding: Raw
+{
 answers: {answer_a: 'if (i != 5)', answer_b: 'if (i <> 5)', answer_c: 'if i =! 5 then', answer_d: 'if i <> 5', answer_e: null, …}
 category: "Code"
 correct_answer: "answer_a"
@@ -42,3 +22,24 @@ question: "How to write an IF statement for executing some code if \"i\" is NOT 
 tags: 
   0: {name: 'JavaScript'}
 tip: null
+}
+
+// Open Trivia Api: Cleaned
+{   id: 88
+    topic: "Geography"
+    difficulty: "hard"
+    question: "Which of these countries is NOT a part of the Asian continent?"
+    correct_answer: "Suriname"
+    choices:[ "Georgia", "Russia", "Singapore", 'Suriname']
+}
+
+// Open Trivia Api: Raw
+{
+choices: ['Syria', 'Greece', 'Egypt', 'Turkey']
+correctAnswer: "Turkey"
+difficulty: "easy"
+id:29
+question: "Which modern day country is the region that was known as Phrygia in ancient times?"
+questionNumber: 0
+topic: "History"
+}

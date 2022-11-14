@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
-import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
+import {fetchCodingData, fetchGeneralData} from "../../utilities/apiCalls"
 import Form from "../Form/Form";
 import Quiz from "../Quiz/Quiz";
 import Question from "../Question/Question";
@@ -20,32 +20,31 @@ class App extends Component {
     };
   }
 
-  selectCategory = (event) => {
-    this.setState({ triviaType: event.target.name });
+  selectCategory = (type) => {
+    this.setState({ triviaType: type });
   };
 
-  addQuestions = (quizQuestions) => {
-    this.setState({
-      ...this.state,
-      quizQuestions: quizQuestions,
-      currentQuestion: quizQuestions[0],
-    });
-  };
-
-  showQuestion = (id) => {
-    const question = this.state.quizQuestions.find(
-      (question) => question.id === id
-    );
-    this.setState({ ...this.state, currentQuestion: question });
-  };
-
-  isChecked = (event) => {
-    if (event.target.checked) {
-      console.log("Checkbox is checked");
-    } else {
-      console.log("Checkbox is NOT checked");
-    }
-  };
+getQuestions = ( difficulty, numOfQuestions, topic) => {
+  if (this.state.triviaType === "programming") {
+    fetchCodingData(
+        difficulty,
+        numOfQuestions,
+        topic
+      )
+      .then((data) => console.log("form", data))
+      .then((data) => this.setState({quizQuestions: data}))
+      .catch((error) => console.log(error));
+  } else {
+      fetchGeneralData(
+        numOfQuestions,
+        topic,
+        difficulty.toLowerCase()
+      )
+      .then((data) => console.log("form", data))
+      .then((data) => this.setState({quizQuestions: data}))
+      .catch((error) => console.log(error));
+  }
+};
 
   render() {
     return (
@@ -60,9 +59,7 @@ class App extends Component {
             element={
               <Form
                 triviaType={this.state.triviaType}
-                fetchGeneralData={fetchGeneralData}
-                fetchCodingData={fetchCodingData}
-                addQuestions={this.addQuestions}
+                getQuestions={this.getQuestions}
               />
             }
           />
@@ -71,16 +68,10 @@ class App extends Component {
             element={
               <Quiz
                 quizQuestions={this.state.quizQuestions}
-                showQuestion={this.showQuestion}
                 currentQuestion={this.state.currentQuestion}
                 triviaType={this.state.triviaType}
-                isChecked={this.isChecked}
-              />
+              />   
             }
-          />
-          <Route
-            path="/quiz"
-            element={<Question currentQuestion={this.state.currentQuestion} />}
           />
         </Routes>
       </main>
