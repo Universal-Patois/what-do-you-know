@@ -17,7 +17,7 @@ export const cleanGeneralData = (data) => {
   // console.log(data)
   return data.results.map((question, index) => {
     return {
-      id: Math.floor(Math.random() * 100),
+      id: Math.floor(Math.random() * 500),
       questionNumber: index +1,
       topic: question.category,
       difficulty: question.difficulty,

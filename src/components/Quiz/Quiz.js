@@ -9,9 +9,28 @@ class Quiz extends Component {
   constructor() {
     super()
     this.state = {
-
+      correctAnswers: [],
+      incorrectAnswers: []
     }
   }
+
+ handleChange = (event, correctAnswer) => {
+  const { value, isChecked} = event.target
+  if(isChecked && value === correctAnswer) {
+    this.setState({correctAnswers: [...this.state.correctAnswers, value]})
+  } else if (isChecked && value !== correctAnswer) {
+    this.setState({incorrectAnswers: [...this.state.incorrectAnswers, value]})
+  } else if (!isChecked) {
+    this.setState({
+      correctAnswers: [this.state.correctAnswers.filter((event) => event !== value )], 
+      incorrectAnswers: [this.state.incorrectAnswers.filter((event) => event !== value)]
+    })
+  }
+ }
+
+ submitResults = () => {
+
+ }
 
   render() {
     return (
@@ -33,19 +52,18 @@ class Quiz extends Component {
           <>
           <h1>{this.props.currentQuestion.question}</h1>
             <Question 
-              choice1={this.props.currentQuestion.choices[0]}
-              choice2={this.props.currentQuestion.choices[1]} 
-              choice3={this.props.currentQuestion.choices[2]} 
-              choice4={this.props.currentQuestion.choices[3]} 
+              choice={this.props.currentQuestion.choices}
               correctAnswer={this.props.currentQuestion.correctAnswer}
               id={this.props.currentQuestion.id}
+              onChange={this.handleChange}
+              isChecked={false}
           />
         </> : <h1>'Please Wait. If nothing loads please go back'</h1>}
       </div>
     <NavLink>Previous Question</NavLink>
     <NavLink>Save</NavLink>
     <NavLink>Next Question</NavLink>
-    <NavLink>See Results</NavLink>
+    <NavLink onClick={() => this.submitResults}>See Results</NavLink>
       </>
     )
   }
