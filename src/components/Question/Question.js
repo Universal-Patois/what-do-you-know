@@ -1,22 +1,23 @@
 import React from "react"
 import './Question.css'
 
-const Question = ({id, choice, question, handleChange, isChecked}) => {
+const Question = ({id, choices, handleChange, checked, correctAnswer}) => {
   return (
     <div className="question-container">
-      <h2 className="question">{question}</h2>
-
+      {choices.map(choice => choice && 
       <label>
         <input
           type="checkbox"
           id={id}
+          key={id}
           name="question"
           value={choice}
-          checked={isChecked}
-          onChange={handleChange}
-        />
+          checked={checked}
+          onChange={(event) => handleChange(event, correctAnswer)}
+          />
         {choice}
       </label>
+            )}
     </div>
   )
 }

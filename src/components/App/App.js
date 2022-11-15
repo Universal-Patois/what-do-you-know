@@ -22,11 +22,11 @@ class App extends Component {
     this.setState({ triviaType: type });
   };
 
-  addQuestions = (quizQuestions) => {
+   addQuestions = (quizQuestions) => {
     this.setState({
       ...this.state,
-      quizQuestions: quizQuestions,
-      currentQuestion: quizQuestions[0],
+     quizQuestions: quizQuestions,
+     currentQuestion: quizQuestions[0],
     });
   };
 

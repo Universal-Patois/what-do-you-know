@@ -10,38 +10,48 @@ class Quiz extends Component {
     super()
     this.state = {
       correctAnswers: [],
-      incorrectAnswers: []
+      incorrectAnswers: [],
+      checked: false
     }
   }
 
  handleChange = (event, correctAnswer) => {
-  const { value, isChecked} = event.target
-  if(isChecked && value === correctAnswer) {
-    console.log(`${value} is ${isChecked}`)
+  this.setChecked()
+  const { value, checked} = event.target
+  if(checked && value === correctAnswer) {
+    // console.log(`${value} is ${checked}`)
     this.setState({
       correctAnswers: [...this.state.correctAnswers, value]
     })
-  } else if (isChecked && value !== correctAnswer) {
-    console.log(`${value} is ${isChecked}`)
+  } else if (checked && value !== correctAnswer) {
+    // console.log(`${value} is ${checked}`)
     this.setState({
       incorrectAnswers: [...this.state.incorrectAnswers, value]
       })
-  } else if (!isChecked) {
-    console.log(`${value} is ${isChecked}`)
+  } else if (!checked) {
+    // console.log(`${value} is ${checked}`)
     this.setState({
-      correctAnswers: [this.state.correctAnswers.filter((event) => event !== value )], 
-      incorrectAnswers: [this.state.incorrectAnswers.filter((event) => event !== value)]
+      correctAnswers: [this.state.correctAnswers.filter((answer) => answer !== value )], 
+      incorrectAnswers: [this.state.incorrectAnswers.filter((answer) => answer !== value)]
     })
   }
  }
 
- saveQuestion = () => {
-
+ setChecked = () => {
+  if(!this.state.checked) {
+    this.setState({checked: true})
+  } else {
+    this.setState({checked: false})
+  }
  }
 
- submitResults = () => {
+  saveQuestion = () => {
 
- }
+  }
+
+  submitResults = () => {
+
+  }
 
   render() {
     return (
@@ -62,14 +72,15 @@ class Quiz extends Component {
         {this.props.currentQuestion.choices && this.props.currentQuestion.choices.length ? 
           <>
           <h1 className="question">{this.props.currentQuestion.question}</h1>
+          <h3 className="question-number">Question {this.props.currentQuestion.questionNumber}</h3>
             <Question 
-              choice={this.props.currentQuestion.choices.map(choice => choice)}
+              choices={this.props.currentQuestion.choices}
               correctAnswer={this.props.currentQuestion.correctAnswer}
               id={this.props.currentQuestion.id}
-              onChange={this.handleChange}
-              checked={false}
+              handleChange={this.handleChange}
+              checked={this.state.checked}
           />
-        </> : <h1 className="message">'Please Wait. If nothing loads please go back to the Form page'</h1>}
+        </> : <h1 className="message">'Please Wait. If nothing loads please go back to the Trivia Selection page'</h1>}
       </div>
       <nav className="nav">
         <NavLink className="form" to="/">Back to TriviaSelection</NavLink>
