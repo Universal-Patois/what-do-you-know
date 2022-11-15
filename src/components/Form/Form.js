@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown } from "react-dropdown-now";
 import { NavLink } from "react-router-dom";
+import "./Form.css";
 
 class Form extends Component {
   constructor() {
@@ -22,16 +23,16 @@ class Form extends Component {
 
   convertTopicToNumber = (topic) => {
     const lookup = {
-      "Geography": 22,
-      "History": 23,
+      Geography: 22,
+      History: 23,
       "Science & Nature": 17,
       "Science: Computers": 18,
-      "Animals": 27
-  }
+      Animals: 27,
+    };
     if (this.props.triviaType === "generalized") {
-      this.setState({topic: lookup[topic]})
+      this.setState({ topic: lookup[topic] });
     } else {
-      this.setState({topic: topic})
+      this.setState({ topic: topic });
     }
   };
 
@@ -67,7 +68,11 @@ class Form extends Component {
           <h2 className="topic-title">Choose a Topic</h2>
           <Dropdown
             className="topic-dropdown"
-            options={this.props.triviaType === 'programming' ? this.state.codeOptions : this.state.generalOptions}
+            options={
+              this.props.triviaType === "programming"
+                ? this.state.codeOptions
+                : this.state.generalOptions
+            }
             onSelect={(selection) => this.convertTopicToNumber(selection.value)}
           />
         </div>
@@ -76,7 +81,9 @@ class Form extends Component {
           <Dropdown
             className="difficulty-dropdown"
             options={["Easy", "Medium", "Hard"]}
-            onSelect={(selection) => this.setState({difficulty: selection.value})}
+            onSelect={(selection) =>
+              this.setState({ difficulty: selection.value })
+            }
           />
         </div>
         <div className="numQuestions">
@@ -89,10 +96,10 @@ class Form extends Component {
             }
           />
         </div>
-        <nav>
-          <NavLink to="/">Trivia Selection</NavLink>
-          <NavLink to="/saved-questions">View Saved Questions</NavLink>
-          <NavLink to="/quiz" onClick={() => this.getQuestions()}>
+        <nav className="form-nav">
+          <NavLink className="trivia-selection" to="/">Trivia Selection</NavLink>
+          <NavLink className="saved-questions" to="/saved-questions">View Saved Questions</NavLink>
+          <NavLink className="quiz" to="/quiz" onClick={() => this.getQuestions()}>
             Start Quiz!
           </NavLink>
         </nav>
@@ -104,7 +111,6 @@ class Form extends Component {
 export default Form;
 // import { Dropdown } from "react-dropdown-now";
 // import { NavLink } from "react-router-dom";
-
 
 // class Form extends Component {
 //   constructor() {
@@ -124,20 +130,20 @@ export default Form;
 //     };
 //   }
 
-  // convertTopicToNumber = (topic) => {
-  //   const lookup = {
-  //     "Geography": 22,
-  //     "History": 23,
-  //     "Science & Nature": 17,
-  //     "Science: Computers": 18,
-  //     "Animals": 27
-  // }
-  //   if (this.props.triviaType === "generalized") {
-  //     this.setState({topic: lookup[topic]})
-  //   } else {
-  //     this.setState({topic: topic})
-  //   }
-  // };
+// convertTopicToNumber = (topic) => {
+//   const lookup = {
+//     "Geography": 22,
+//     "History": 23,
+//     "Science & Nature": 17,
+//     "Science: Computers": 18,
+//     "Animals": 27
+// }
+//   if (this.props.triviaType === "generalized") {
+//     this.setState({topic: lookup[topic]})
+//   } else {
+//     this.setState({topic: topic})
+//   }
+// };
 
 //   render() {
 //     return (
@@ -172,9 +178,9 @@ export default Form;
 //         <nav>
 //           <NavLink to="/">Trivia Selection</NavLink>
 //           <NavLink to="/saved-questions">View Saved Questions</NavLink>
-          // <NavLink to="/quiz" onClick={() => this.props.getQuestions( this.state.difficulty, this.state.numOfQuestions, this.state.topic)}>
-          //   Start Quiz!
-          //  </NavLink>
+// <NavLink to="/quiz" onClick={() => this.props.getQuestions( this.state.difficulty, this.state.numOfQuestions, this.state.topic)}>
+//   Start Quiz!
+//  </NavLink>
 //         </nav>
 //       </section>
 //     );

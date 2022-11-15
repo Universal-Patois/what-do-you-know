@@ -6,7 +6,7 @@ const Question = ({id, choice, question, handleChange, isChecked}) => {
     <div className="question-container">
       <h2 className="question">{question}</h2>
 
-      <label className="input-label">
+      <label>
         <input
           type="checkbox"
           id={id}

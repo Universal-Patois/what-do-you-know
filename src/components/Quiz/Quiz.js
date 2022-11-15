@@ -17,15 +17,26 @@ class Quiz extends Component {
  handleChange = (event, correctAnswer) => {
   const { value, isChecked} = event.target
   if(isChecked && value === correctAnswer) {
-    this.setState({correctAnswers: [...this.state.correctAnswers, value]})
+    console.log(`${value} is ${isChecked}`)
+    this.setState({
+      correctAnswers: [...this.state.correctAnswers, value]
+    })
   } else if (isChecked && value !== correctAnswer) {
-    this.setState({incorrectAnswers: [...this.state.incorrectAnswers, value]})
+    console.log(`${value} is ${isChecked}`)
+    this.setState({
+      incorrectAnswers: [...this.state.incorrectAnswers, value]
+      })
   } else if (!isChecked) {
+    console.log(`${value} is ${isChecked}`)
     this.setState({
       correctAnswers: [this.state.correctAnswers.filter((event) => event !== value )], 
       incorrectAnswers: [this.state.incorrectAnswers.filter((event) => event !== value)]
     })
   }
+ }
+
+ saveQuestion = () => {
+
  }
 
  submitResults = () => {
@@ -50,20 +61,23 @@ class Quiz extends Component {
       <div className="question-container">
         {this.props.currentQuestion.choices && this.props.currentQuestion.choices.length ? 
           <>
-          <h1>{this.props.currentQuestion.question}</h1>
+          <h1 className="question">{this.props.currentQuestion.question}</h1>
             <Question 
-              choice={this.props.currentQuestion.choices}
+              choice={this.props.currentQuestion.choices.map(choice => choice)}
               correctAnswer={this.props.currentQuestion.correctAnswer}
               id={this.props.currentQuestion.id}
               onChange={this.handleChange}
-              isChecked={false}
+              checked={false}
           />
-        </> : <h1>'Please Wait. If nothing loads please go back'</h1>}
+        </> : <h1 className="message">'Please Wait. If nothing loads please go back to the Form page'</h1>}
       </div>
-    <NavLink>Previous Question</NavLink>
-    <NavLink>Save</NavLink>
-    <NavLink>Next Question</NavLink>
-    <NavLink onClick={() => this.submitResults}>See Results</NavLink>
+      <nav className="nav">
+        <NavLink className="form" to="/">Back to TriviaSelection</NavLink>
+        <NavLink className="previous">Previous Question</NavLink>
+        <NavLink className="save">Save</NavLink>
+        <NavLink className="next">Next Question</NavLink>
+        <NavLink className="results"onClick={() => this.submitResults}>See Results</NavLink>
+      </nav>
       </>
     )
   }
