@@ -32,6 +32,10 @@ class App extends Component {
     });
   };
 
+  saveQuestion = () => {
+    this.setState({savedQuestions: [...this.state.savedQuestions, this.state.currentQuestion]})
+  }
+
   
 
   showQuestion = (id) => {
@@ -69,6 +73,7 @@ class App extends Component {
                 currentQuestion={this.state.currentQuestion}
                 correctAnswer={this.state.correctAnswer}
                 triviaType={this.state.triviaType}
+                saveQuestion={this.saveQuestion}
               />
             }
           />

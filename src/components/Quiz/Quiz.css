@@ -5,7 +5,7 @@
 }
 
 .question {
-  margin-left: 15rem;
+  margin-left: 20rem;
 }
 
 .question-number {
@@ -26,6 +26,7 @@
 .nav {
   margin-left: 20rem;
   margin-top: 8rem;
+  margin-bottom: 1rem;
 }
 
 .previous {

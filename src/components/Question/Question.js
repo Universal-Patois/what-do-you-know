@@ -8,10 +8,9 @@ const Question = ({id, choices, correctAnswer, checkAnswer}) => {
         <button
           id={id}
           key={index}
-          value={index}
-          correctAnswer={correctAnswer}
+          value={choice}
           className="choice-button"
-          onClick={checkAnswer}>{choice}
+          onClick={(event) => checkAnswer(event)}>{choice}
           </button>
             )}
     </div>
