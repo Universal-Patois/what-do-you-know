@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import SavedQuestion from "../SavedQuestion/SavedQuestion";
 import "./SavedQuestionsContainer.css";
 
@@ -50,3 +51,9 @@ const SavedQuestionsContainer = ({
 };
 
 export default SavedQuestionsContainer;
+
+SavedQuestionsContainer.propType = {
+  savedQuestions: PropTypes.arrayOf(PropTypes.object),
+  removeQuestion: PropTypes.func.isRequired,
+  startReview: PropTypes.func.isRequired
+}

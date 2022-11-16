@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SavedQuestion.css"
 
 const SavedQuestion = ({questionNumber, questionTopic, question,removeQuestion, id}) => {
@@ -13,3 +14,11 @@ const SavedQuestion = ({questionNumber, questionTopic, question,removeQuestion, 
 }
 
 export default SavedQuestion;
+
+SavedQuestion.propType = {
+  questionNumber: PropTypes.number,
+  questionTopic: PropTypes.string,
+  question: PropTypes.string,
+  removeQuestion: PropTypes.func.isRequired,
+  id: PropTypes.number
+}

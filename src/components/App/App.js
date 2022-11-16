@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
 import SavedQuestionsContainer from "../SavedQuestionsContainer/SavedQuestionsContainer";
@@ -117,3 +118,25 @@ class App extends Component {
 }
 
 export default App;
+
+App.propType = {
+  triviaType: PropTypes.string,
+  savedQuestions: PropTypes.arrayOf(PropTypes.object),
+  quizQuestions: PropTypes.arrayOf(PropTypes.object),
+  currentQuestion: PropTypes.shape({
+    choices: PropTypes.array,
+    correctAnswer: PropTypes.string,
+    difficulty: PropTypes.string,
+    id: PropTypes.number,
+    question: PropTypes.string,
+    questionNumber: PropTypes.number,
+    topic: PropTypes.string,
+  }),
+  correctAnswer: PropTypes.string,
+  selectCategory: PropTypes.func.isRequired,
+  addQuestions: PropTypes.func.isRequired,
+  saveQuestion: PropTypes.func.isRequired,
+  showQuestion: PropTypes.func.isRequired,
+  removeQuestion: PropTypes.func.isRequired,
+  startReview: PropTypes.func.isRequired
+}

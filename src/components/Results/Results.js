@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import './Results.css'
 
 const Results = ({quizQuestions, score}) => {
@@ -15,3 +16,8 @@ const Results = ({quizQuestions, score}) => {
 }
 
 export default Results;
+
+Results.propType = {
+  quizQuestions: PropTypes.arrayOf(PropTypes.object),
+  score: PropTypes.number
+}
