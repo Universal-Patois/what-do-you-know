@@ -71,7 +71,7 @@ class Quiz extends Component {
       
      
       <nav className="nav">
-        <NavLink className="form" to="/">Back to TriviaSelection</NavLink>
+        <NavLink className="triviaSelection" to="/">Back to TriviaSelection</NavLink>
         { !this.state.submitted && 
         <>
           <NavLink className="save" onClick={this.props.saveQuestion}>Save Question</NavLink> 
@@ -79,8 +79,6 @@ class Quiz extends Component {
         </>
         }
       </nav>
-  
- 
     </>
     )
   }

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
+import SavedQuestionsContainer from "../SavedQuestionsContainer/SavedQuestionsContainer";
 import Form from "../Form/Form";
 import Quiz from "../Quiz/Quiz";
-import Results from "../Results/Results";
 import "./App.css";
 
 class App extends Component {
@@ -33,6 +33,7 @@ class App extends Component {
   };
 
   saveQuestion = () => {
+    !this.state.savedQuestions.includes(this.state.currentQuestion) &&
     this.setState({savedQuestions: [...this.state.savedQuestions, this.state.currentQuestion]})
   }
 
@@ -75,10 +76,10 @@ class App extends Component {
               />
             }
           />
-          {/* <Route
-            path="/results"
-            element={<Results  quizQuestions={this.state.quizQuestions}/>}
-          /> */}
+          <Route
+            path="/saved-questions"
+            element={<SavedQuestionsContainer savedQuestions={this.state.savedQuestions}/>}
+          />
         </Routes>
       </main>
     );

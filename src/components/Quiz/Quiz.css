@@ -29,21 +29,9 @@
   margin-bottom: 1rem;
 }
 
-.previous {
-  border: 3px solid lightblue;
-  color: lightblue;
-  padding: 1rem;
-}
-
 .save {
   border: 3px solid coral;
   color: coral;
-  padding: 1rem;
-}
-
-.next {
-  border: 3px solid lightblue;
-  color: lightblue;
   padding: 1rem;
 }
 
