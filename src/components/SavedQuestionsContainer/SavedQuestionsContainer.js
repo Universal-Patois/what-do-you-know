@@ -11,7 +11,7 @@ const SavedQuestionsContainer = ({
   const savedQuestionsCards = savedQuestions.map((question, index) => {
     return (
       <SavedQuestion
-        // questionNumber={index}
+        questionNumber={index + 1}
         questionTopic={question.topic}
         question={question.question}
         removeQuestion={removeQuestion}
