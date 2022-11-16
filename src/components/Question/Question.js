@@ -1,7 +1,7 @@
 import React from "react"
 import './Question.css'
 
-const Question = ({id, choices, correctAnswer, checkAnswer}) => {
+const Question = ({id, choices, checkAnswer}) => {
   return (
     <div className="choice-container">
       {choices.map((choice, index) => choice && 
@@ -9,7 +9,7 @@ const Question = ({id, choices, correctAnswer, checkAnswer}) => {
           id={id}
           key={index}
           value={choice}
-          className="choice-button"
+          className={'choice-button'}
           onClick={(event) => checkAnswer(event)}>{choice}
           </button>
             )}
