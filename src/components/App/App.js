@@ -74,6 +74,7 @@ class App extends Component {
       <main>
         <Routes>
           <Route
+          
             path="/"
             element={<TriviaSelection selectCategory={this.selectCategory} />}
           />
