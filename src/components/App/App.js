@@ -4,7 +4,7 @@ import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
 import Form from "../Form/Form";
 import Quiz from "../Quiz/Quiz";
-import Question from "../Question/Question";
+import Results from "../Results/Results";
 import "./App.css";
 
 class App extends Component {
@@ -35,8 +35,6 @@ class App extends Component {
   saveQuestion = () => {
     this.setState({savedQuestions: [...this.state.savedQuestions, this.state.currentQuestion]})
   }
-
-  
 
   showQuestion = (id) => {
     const question = this.state.quizQuestions.find(
@@ -77,10 +75,10 @@ class App extends Component {
               />
             }
           />
-          <Route
-            path="/quiz"
-            element={<Question currentQuestion={this.state.currentQuestion} />}
-          />
+          {/* <Route
+            path="/results"
+            element={<Results  quizQuestions={this.state.quizQuestions}/>}
+          /> */}
         </Routes>
       </main>
     );
