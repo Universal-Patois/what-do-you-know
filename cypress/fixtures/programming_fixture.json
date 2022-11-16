@@ -1,0 +1,162 @@
+[
+  {
+      "id": 974,
+      "question": "What is the correct JavaScript syntax to change the content of the HTML element below?",
+      "description": null,
+      "answers": {
+          "answer_a": "#demo.innerHTML = \"Hello World!\";",
+          "answer_b": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+          "answer_c": "document.getElement(\"p\").innerHTML = \"Hello World!\";",
+          "answer_d": "document.getElementByName(\"p\").innerHTML = \"Hello World!\";",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "true",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "JavaScript"
+          }
+      ],
+      "category": "Code",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 994,
+      "question": "How do you declare a JavaScript variable?",
+      "description": null,
+      "answers": {
+          "answer_a": "v carName;",
+          "answer_b": "variable carName;",
+          "answer_c": "var carName;",
+          "answer_d": null,
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "true",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "JavaScript"
+          }
+      ],
+      "category": "Code",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 985,
+      "question": "How can you add a comment in a JavaScript?",
+      "description": null,
+      "answers": {
+          "answer_a": "//This is a comment",
+          "answer_b": "'This is a comment",
+          "answer_c": "<!--This is a comment-->",
+          "answer_d": null,
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "JavaScript"
+          }
+      ],
+      "category": "Code",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 996,
+      "question": "What will the following code return: Boolean(10 > 9)",
+      "description": null,
+      "answers": {
+          "answer_a": "true",
+          "answer_b": "NaN",
+          "answer_c": "false",
+          "answer_d": null,
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "JavaScript"
+          }
+      ],
+      "category": "Code",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 987,
+      "question": "What is the correct way to write a JavaScript array?",
+      "description": null,
+      "answers": {
+          "answer_a": "var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")",
+          "answer_b": "var colors = \"red\", \"green\", \"blue\"",
+          "answer_c": "var colors = [\"red\", \"green\", \"blue\"]",
+          "answer_d": "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "true",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "JavaScript"
+          }
+      ],
+      "category": "Code",
+      "difficulty": "Easy"
+  }
+]

@@ -73,6 +73,13 @@ describe('filling form out', () => {
     cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
     cy.get('[tabindex="0"]').click()
     cy.get('.quiz').click()
+    cy.intercept(
+      'GET', 
+      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
+      {
+      statusCode: 201,
+      fixture: "generalized_fixture.json"
+    })
     cy.get(':nth-child(1) > .card-button').should('be.visible').contains('Question 1')
     cy.get(':nth-child(2) > .card-button').should('be.visible').contains('Question 2')
     cy.get(':nth-child(3) > .card-button').should('be.visible').contains('Question 3')
