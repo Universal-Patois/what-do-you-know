@@ -1,0 +1,15 @@
+.app-header{
+  margin-left: 16em;
+}
+
+.button {
+  margin-left: 23rem;
+  width: 7rem;
+  height: 5rem;
+  font-size:medium;
+  border-radius: 7%;
+}
+
+.app-message {
+  margin-left: 19rem;
+}

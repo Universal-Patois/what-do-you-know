@@ -1,0 +1,54 @@
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.question {
+  margin-left: 20rem;
+}
+
+.question-number {
+  margin-left: 37rem
+}
+
+.message {
+  margin-left: 9rem;
+  margin-top: 5rem;
+}
+
+.form {
+  border: 3px solid yellowgreen;
+  color: yellowgreen;
+  padding: 1rem;
+}
+
+.nav {
+  margin-left: 20rem;
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+}
+
+.previous {
+  border: 3px solid lightblue;
+  color: lightblue;
+  padding: 1rem;
+}
+
+.save {
+  border: 3px solid coral;
+  color: coral;
+  padding: 1rem;
+}
+
+.next {
+  border: 3px solid lightblue;
+  color: lightblue;
+  padding: 1rem;
+}
+
+.results {
+  border: 3px solid red;
+  color: red;
+  padding: 1rem;
+}

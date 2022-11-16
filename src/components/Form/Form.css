@@ -1,0 +1,52 @@
+.form-header {
+  margin-left: 35rem;
+  font-size: 200%
+}
+
+.topic-title {
+  margin-left: 10rem;
+}
+
+.topic-dropdown {
+  margin-left: 5rem;
+}
+
+.difficulty-title {
+  margin-left: 50rem;
+}
+
+.difficulty-dropdown {
+  margin-left: 20rem;
+}
+
+.numQuestions-title {
+  margin-left: 25rem;
+}
+
+.numQuestions-dropdown {
+  margin-left: 10rem;
+}
+
+.form-nav {
+  margin-left: 30rem;
+  margin-top: 10rem;
+}
+
+.trivia-selection {
+  border: 3px solid yellowgreen;
+  color: yellowgreen;
+  padding: 1rem;
+}
+
+.saved-questions{
+  border: 3px solid red;
+  color: red;
+  padding: 1rem;
+}
+
+.quiz {
+  border: 3px solid lightblue;
+  color: lightblue;
+  padding: 1rem;
+}
+
