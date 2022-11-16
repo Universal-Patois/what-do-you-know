@@ -7,7 +7,7 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
-      codeOptions: ["JavaScript", "HTML", "PHP", "MySQL", "WordPress"],
+      codeOptions: ["JavaScript", "HTML", "PHP", "Laravel"],
       generalOptions: [
         "Geography",
         "History",

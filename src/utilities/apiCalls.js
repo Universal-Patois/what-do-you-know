@@ -21,6 +21,8 @@ export const fetchGeneralData = async (amount, category, difficulty) => {
       throw Error(response.statusText + response.status)
     }
     const data = await response.json()
+    console.log(data)
     const cleanData = cleanCodingData(data)
+    console.log(cleanData)
     return cleanData
   }

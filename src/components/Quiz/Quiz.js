@@ -31,9 +31,9 @@ class Quiz extends Component {
       { !this.state.submitted ?
       <>
         <div className="card-container">
-        { this.props.quizQuestions.map(question => ( 
+        { this.props.quizQuestions.map((question, index) => ( 
           <QuestionCard 
-          questionNumber={question.questionNumber}
+          questionNumber={index +1}
           question={question.question}
           showQuestion={this.props.showQuestion}
           id={question.id}
