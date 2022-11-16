@@ -95,9 +95,17 @@ class Form extends Component {
           />
         </div>
         <nav className="form-nav">
-          <NavLink className="trivia-selection" to="/">Trivia Selection</NavLink>
-          <NavLink className="saved-questions" to="/saved-questions">View Saved Questions</NavLink>
-          <NavLink className="quiz" to="/quiz" onClick={() => this.getQuestions()}>
+          <NavLink className="trivia-selection" to="/">
+            Trivia Selection
+          </NavLink>
+          <NavLink className="saved-questions" to="/saved-questions">
+            View Saved Questions
+          </NavLink>
+          <NavLink
+            className="quiz"
+            to="/quiz"
+            onClick={() => this.getQuestions()}
+          >
             Start Quiz!
           </NavLink>
         </nav>

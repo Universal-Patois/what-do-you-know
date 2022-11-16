@@ -11,7 +11,6 @@ class Quiz extends Component {
     super()
     this.state = {
       correctAnswers: [],
-      saveMessage: false,
       score: 0,
       submitted: false
     }
@@ -26,29 +25,19 @@ class Quiz extends Component {
     }
   }
 
-  // saveMessage = () => {
-  //   this.setState({saveMessage: true})
-  //   setTimeout(this.clearMessage, 3000)
-  // }
-  
-  // clearMessage = () => {
-  //   this.setState({saveMessage: false})
-  // }
-
   render() {
     return (
       <>
       { !this.state.submitted ?
       <>
-        <h3>The Last Answer that is Clicked will be Saved</h3>
         <div className="card-container">
         { this.props.quizQuestions.map(question => ( 
           <QuestionCard 
-            questionNumber={question.questionNumber}
-            question={question.question}
-            showQuestion={this.props.showQuestion}
-            id={question.id}
-            key={question.id}
+          questionNumber={question.questionNumber}
+          question={question.question}
+          showQuestion={this.props.showQuestion}
+          id={question.id}
+          key={question.id}
           />
           ))
         }
@@ -62,21 +51,28 @@ class Quiz extends Component {
                 choices={this.props.currentQuestion.choices}
                 id={this.props.currentQuestion.id}
                 checkAnswer={this.checkAnswer}
-            />
-            {this.state.saveMessage && <p>Question Saved!</p>}
-          </> : <h2 className="message">'Please Wait. If nothing loads please go back to the Trivia Selection page'</h2>}
+                />
+         
+        <h3 className="message">The Last Answer that is Clicked will be Saved</h3>
+          </> : <h2 className="message">Please Wait. If Nothing Loads Please Go Back to the Trivia Selection or Form Page and Make a Selection Again</h2>}
         </div>
       </>
        :  <Results quizQuestions={this.props.quizQuestions} score={this.state.score} /> }
       
      
       <nav className="nav">
-        <NavLink className="triviaSelection" to="/">Back to TriviaSelection</NavLink>
+        <NavLink className="trivia-selection" to="/">Back to Trivia Selection</NavLink>
+        <NavLink className='form' to='/form'>Form Page</NavLink>
         { !this.state.submitted && 
         <>
           <NavLink className="save" onClick={this.props.saveQuestion}>Save Question</NavLink> 
           <NavLink className="results" onClick={() => this.setState({submitted: true})}>See Results</NavLink> 
         </>
+        }
+        {this.state.submitted &&
+          <>
+            <NavLink className='saved' to='/saved-questions'>Saved Questions</NavLink>
+          </>
         }
       </nav>
     </>

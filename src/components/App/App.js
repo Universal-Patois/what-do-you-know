@@ -15,7 +15,7 @@ class App extends Component {
       savedQuestions: [],
       quizQuestions: [],
       currentQuestion: {},
-      correctAnswer: ''
+      correctAnswer: "",
     };
   }
 
@@ -23,31 +23,51 @@ class App extends Component {
     this.setState({ triviaType: type });
   };
 
-   addQuestions = (quizQuestions) => {
+  addQuestions = (quizQuestions) => {
     this.setState({
       ...this.state,
-     quizQuestions: quizQuestions,
-     currentQuestion: quizQuestions[0],
-     correctAnswer: quizQuestions[0].correctAnswer
+      quizQuestions: quizQuestions,
+      currentQuestion: quizQuestions[0],
+      correctAnswer: quizQuestions[0].correctAnswer,
     });
   };
 
   saveQuestion = () => {
     !this.state.savedQuestions.includes(this.state.currentQuestion) &&
-    this.setState({savedQuestions: [...this.state.savedQuestions, this.state.currentQuestion]})
-  }
+      this.setState({
+        savedQuestions: [
+          ...this.state.savedQuestions,
+          this.state.currentQuestion,
+        ],
+      });
+  };
 
   showQuestion = (id) => {
     const question = this.state.quizQuestions.find(
       (question) => question.id === id
     );
-    this.setState({ ...this.state, currentQuestion: question , correctAnswer: question.correctAnswer});
+    this.setState({
+      ...this.state,
+      currentQuestion: question,
+      correctAnswer: question.correctAnswer,
+    });
   };
-  
+
   removeQuestion = (id) => {
-    const updatedQuestions = this.state.savedQuestions.filter(question => question.id !== id)
-    this.setState({ savedQuestions: updatedQuestions})
-  }
+    const updatedQuestions = this.state.savedQuestions.filter(
+      (question) => question.id !== id
+    );
+    this.setState({ savedQuestions: updatedQuestions });
+  };
+
+  startReview = () => {
+    this.setState({
+      quizQuestions: this.state.savedQuestions,
+      currentQuestion: this.state.quizQuestions[0],
+      correctAnswer: this.state.quizQuestions[0].correctAnswer,
+    });
+  };
+
   render() {
     return (
       <main>
@@ -83,11 +103,12 @@ class App extends Component {
           <Route
             path="/saved-questions"
             element={
-            <SavedQuestionsContainer 
-            savedQuestions={this.state.savedQuestions}
-            removeQuestion={this.removeQuestion}
-            />
-          }
+              <SavedQuestionsContainer
+                savedQuestions={this.state.savedQuestions}
+                removeQuestion={this.removeQuestion}
+                startReview={this.startReview}
+              />
+            }
           />
         </Routes>
       </main>
