@@ -1,0 +1,65 @@
+{
+  "response_code": 0,
+  "results": [
+      {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "What state is the largest state of the United States of America?",
+          "correct_answer": "Alaska",
+          "incorrect_answers": [
+              "California",
+              "Texas",
+              "Washington"
+          ]
+      },
+      {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "What is the official language of Costa Rica?",
+          "correct_answer": "Spanish",
+          "incorrect_answers": [
+              "English",
+              "Portuguese",
+              "Creole"
+          ]
+      },
+      {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "Which of the following Arab countries does NOT have a flag containing only Pan-Arab colours?",
+          "correct_answer": "Qatar",
+          "incorrect_answers": [
+              "Kuwait",
+              "United Arab Emirates",
+              "Jordan"
+          ]
+      },
+      {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "How many stars are featured on New Zealand&#039;s flag?",
+          "correct_answer": "4",
+          "incorrect_answers": [
+              "5",
+              "2",
+              "0"
+          ]
+      },
+      {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "Which country was NOT part of the Soviet Union?",
+          "correct_answer": "Romania",
+          "incorrect_answers": [
+              "Turkmenistan",
+              "Belarus",
+              "Tajikistan"
+          ]
+      }
+  ]
+}
