@@ -24,6 +24,7 @@ const SavedQuestionsContainer = ({
 
   return (
     <div className="saved-questions-container">
+      <h1 className="saved"> Saved Questions</h1>
       {!savedQuestions.length && (
         <p className="message">
           There are Currently no Saved Questions! Please Take a Quiz to Find

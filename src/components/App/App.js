@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
@@ -111,6 +111,7 @@ class App extends Component {
               />
             }
           />
+          <Route path='*' element={<Navigate to='/' replace /> } />
         </Routes>
       </main>
     );

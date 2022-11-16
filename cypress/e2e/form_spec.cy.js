@@ -46,7 +46,6 @@ describe('filling form out', () => {
   it('should have a dropdown selection of difficulty', () => {
     cy.get('.difficulty > [data-testid="dropdown-root"] > [data-testid="dropdown-control"]').click()
     cy.get('[tabindex="0"]').contains('Easy')
-    cy.get('[tabindex="1"]').contains('Medium')
   })
 
   it('should be able to set difficulty by clicking it', () => {
