@@ -1,5 +1,4 @@
 export const cleanCodingData = (data) => {
-  // console.log(data)
   return data.map((question, index) => {
     return {
       id: question.id,
@@ -14,7 +13,6 @@ export const cleanCodingData = (data) => {
 }
 
 export const cleanGeneralData = (data) => {
-  // console.log(data)
   return data.results.map((question, index) => {
     return {
       id: Math.floor(Math.random() * 500),
