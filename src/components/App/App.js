@@ -43,7 +43,11 @@ class App extends Component {
     );
     this.setState({ ...this.state, currentQuestion: question , correctAnswer: question.correctAnswer});
   };
-
+  
+  removeQuestion = (id) => {
+    const updatedQuestions = this.state.savedQuestions.filter(question => question.id !== id)
+    this.setState({ savedQuestions: updatedQuestions})
+  }
   render() {
     return (
       <main>
@@ -78,7 +82,12 @@ class App extends Component {
           />
           <Route
             path="/saved-questions"
-            element={<SavedQuestionsContainer savedQuestions={this.state.savedQuestions}/>}
+            element={
+            <SavedQuestionsContainer 
+            savedQuestions={this.state.savedQuestions}
+            removeQuestion={this.removeQuestion}
+            />
+          }
           />
         </Routes>
       </main>

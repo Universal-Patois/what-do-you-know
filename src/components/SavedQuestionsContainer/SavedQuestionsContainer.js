@@ -1,12 +1,15 @@
 import React from "react";
+import SavedQuestion from "../SavedQuestion/SavedQuestion";
+import "./SavedQuestionsContainer.css"
 
-const SavedQuestionsContainer = ({saveQuestions}) =>{
+const SavedQuestionsContainer = ({savedQuestions, removeQuestion}) =>{
   const savedQuestionsCards = savedQuestions.map((question, index) => {
     return (
-      <SavedQuestions
+      <SavedQuestion
         questionNumber={index +1}
         questionTopic={question.topic}
         question={question.question}
+        removeQuestion={removeQuestion}
         id={question.id}
         key={question.id}
       />
