@@ -93,5 +93,5 @@ Quiz.propType = {
     questionNumber: PropTypes.number,
     topic: PropTypes.string,
   }),
-  showQuestion: PropTypes.any.isRequired
+  
 }

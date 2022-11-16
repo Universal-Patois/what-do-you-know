@@ -46,7 +46,6 @@ describe('filling form out', () => {
   it('should have a dropdown selection of difficulty', () => {
     cy.get('.difficulty > [data-testid="dropdown-root"] > [data-testid="dropdown-control"]').click()
     cy.get('[tabindex="0"]').contains('Easy')
-    cy.get('[tabindex="1"]').contains('Medium')
   })
 
   it('should be able to set difficulty by clicking it', () => {
@@ -66,13 +65,6 @@ describe('filling form out', () => {
   })
 
   it('should be able to click start quiz and be take to quiz page with selected number of questions and topic', () => {
-    cy.get('.topic > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
-    cy.get('[tabindex="0"]').click()
-    cy.get('.difficulty > [data-testid="dropdown-root"] > [data-testid="dropdown-control"]').click()
-    cy.get('[tabindex="0"]').click()
-    cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
-    cy.get('[tabindex="0"]').click()
-    cy.get('.quiz').click()
     cy.intercept(
       'GET', 
       'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
@@ -80,6 +72,13 @@ describe('filling form out', () => {
       statusCode: 201,
       fixture: "generalized_fixture.json"
     })
+    cy.get('.topic > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
+    cy.get('[tabindex="0"]').click()
+    cy.get('.difficulty > [data-testid="dropdown-root"] > [data-testid="dropdown-control"]').click()
+    cy.get('[tabindex="0"]').click()
+    cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
+    cy.get('[tabindex="0"]').click()
+    cy.get('.quiz').click()
     cy.get(':nth-child(1) > .card-button').should('be.visible').contains('Question 1')
     cy.get(':nth-child(2) > .card-button').should('be.visible').contains('Question 2')
     cy.get(':nth-child(3) > .card-button').should('be.visible').contains('Question 3')

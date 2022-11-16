@@ -1,5 +1,12 @@
 describe('quiz page', () => {
   beforeEach(() => {
+    cy.intercept(
+      'GET', 
+      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
+      {
+      statusCode: 201,
+      fixture: "generalized_fixture.json"
+    }).as('user')
     cy.visit('http://localhost:3000/')
     cy.get(':nth-child(3) > .button').click()
     cy.get('.topic > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
@@ -9,13 +16,6 @@ describe('quiz page', () => {
     cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
     cy.get('[tabindex="0"]').click()
     cy.get('.quiz').click()
-    cy.intercept(
-      'GET', 
-      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
-      {
-      statusCode: 201,
-      fixture: "generalized_fixture.json"
-    }).as('user')
   })
 
   it('should show the number of quiz questions that were selected', () => {
@@ -26,10 +26,13 @@ describe('quiz page', () => {
     cy.get(':nth-child(5) > .card-button').should('be.visible').contains('Question 5')
   })
 
-  it('should show the question number, question, choice container with buttons, and message', () => {
+  it('should show the question number, question, choices, and message', () => {
     cy.get('.question-number').contains('Question 1')
-    cy.get('.question').should('be.visible')
-    cy.get('.choice-container').should('be.visible')
+    cy.get('.question').contains('What state is the largest state of the United States of America?')
+    cy.get('[value="California"]').should('be.visible')
+    cy.get('[value="Texas"]').should('be.visible')
+    cy.get('[value="Washington"]').should('be.visible')
+    cy.get('[value="Alaska"]').should('be.visible')
     cy.get('.message').contains('The Last Answer that is Clicked will be Saved')
   })
 
@@ -54,8 +57,12 @@ describe('quiz page', () => {
     cy.get('.save').click()
   })
 
-  it('should be able to click the See Results link and be taken to the results', () => {
+  it('should be able to click choices then click See Results link and be taken to the results', () => {
+    cy.get('[value="Alaska"]').click()
     cy.get('.results').click()
     cy.get('.header').contains('Your Results')
+    cy.get('.questions').contains('Number of Questions: 5')
+    cy.get('.correct').contains('Questions Correct: 1')
+    cy.get('.score').contains('Percentage: 20 %')
   })
 })

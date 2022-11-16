@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Dropdown } from "react-dropdown-now";
 import { NavLink } from "react-router-dom";
 import "./Form.css";
@@ -78,7 +79,7 @@ class Form extends Component {
           <h2 className="difficulty-title">Choose a Difficulty</h2>
           <Dropdown
             className="difficulty-dropdown"
-            options={["Easy", "Medium", "Hard"]}
+            options={["Easy"]}
             onSelect={(selection) =>
               this.setState({ difficulty: selection.value })
             }
@@ -115,3 +116,13 @@ class Form extends Component {
 }
 
 export default Form;
+
+Form.propType = {
+  codeOptions: PropTypes.arrayOf(PropTypes.string),
+  generalOptions: PropTypes.arrayOf(PropTypes.string),
+  difficulty: PropTypes.string,
+  numOfQuestions: PropTypes.string,
+  topic: PropTypes.string,
+  convertTopicToNumber: PropTypes.func.isRequired,
+  getQuestions: PropTypes.func.isRequired
+}

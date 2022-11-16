@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import SavedQuestion from "../SavedQuestion/SavedQuestion";
 import "./SavedQuestionsContainer.css";
 
@@ -23,6 +24,7 @@ const SavedQuestionsContainer = ({
 
   return (
     <div className="saved-questions-container">
+      <h1 className="saved"> Saved Questions</h1>
       {!savedQuestions.length && (
         <p className="message">
           There are Currently no Saved Questions! Please Take a Quiz to Find
@@ -50,3 +52,9 @@ const SavedQuestionsContainer = ({
 };
 
 export default SavedQuestionsContainer;
+
+SavedQuestionsContainer.propType = {
+  savedQuestions: PropTypes.arrayOf(PropTypes.object),
+  removeQuestion: PropTypes.func.isRequired,
+  startReview: PropTypes.func.isRequired
+}

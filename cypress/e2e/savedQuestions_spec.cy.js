@@ -1,5 +1,12 @@
 describe('saved questions page', () => {
   beforeEach(() => {
+    cy.intercept(
+      'GET', 
+      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
+      {
+        statusCode: 201,
+        fixture: "generalized_fixture.json"
+      }).as('user')
     cy.visit('http://localhost:3000/')
     cy.get(':nth-child(3) > .button').click()
     cy.get('.topic > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
@@ -9,14 +16,7 @@ describe('saved questions page', () => {
     cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
     cy.get('[tabindex="0"]').click()
     cy.get('.quiz').click()
-    cy.intercept(
-      'GET', 
-      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
-      {
-      statusCode: 201,
-      fixture: "generalized_fixture.json"
-    }).as('user').wait(1000)
-    cy.get('.save').click().wait(500)
+    cy.get('.save').click()
     cy.get('.results').click()
     cy.get('.saved').click()
   })
@@ -24,7 +24,7 @@ describe('saved questions page', () => {
   it('should be able to see saved questions after the have been added', () => {
     cy.get('.number').contains('Question 1')
     cy.get('.topic').contains('Geography')
-    cy.get('.question').should('be.visible')
+    cy.get('.question').contains('What state is the largest state of the United States of America?')
     cy.get('button').should('be.visible').contains('Remove Question')
   })
 
@@ -48,5 +48,6 @@ describe('saved questions page', () => {
     cy.get('.review').click()
     cy.get('.card-button').contains('Question 1')
     cy.get('.question-number').contains('Question 1')
+    cy.get('.question').contains('What state is the largest state of the United States of America?')
   })
 })

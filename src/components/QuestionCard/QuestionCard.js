@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types";
 import './QuestionCard.css'
 
 const QuestionCard = ({questionNumber, showQuestion, id}) => {
@@ -14,3 +15,9 @@ const QuestionCard = ({questionNumber, showQuestion, id}) => {
 }
 
 export default QuestionCard
+
+QuestionCard.propType ={
+  questionNumber: PropTypes.number,
+  showQuestion: PropTypes.func.isRequired,
+  id: PropTypes.number
+}

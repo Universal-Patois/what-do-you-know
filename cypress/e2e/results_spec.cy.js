@@ -1,5 +1,12 @@
 describe('results page', () => {
   beforeEach(() => {
+    cy.intercept(
+      'GET', 
+      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
+      {
+      statusCode: 201,
+      fixture: "generalized_fixture.json"
+    }).as('user')
     cy.visit('http://localhost:3000/')
     cy.get(':nth-child(3) > .button').click()
     cy.get('.topic > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
@@ -9,13 +16,6 @@ describe('results page', () => {
     cy.get('.numQuestions > [data-testid="dropdown-root"] > [data-testid="dropdown-control"] > [data-testid="dropdown-placeholder"]').click()
     cy.get('[tabindex="0"]').click()
     cy.get('.quiz').click()
-    cy.intercept(
-      'GET', 
-      'https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple', 
-      {
-      statusCode: 201,
-      fixture: "generalized_fixture.json"
-    }).as('user')
     cy.get('.results').click()
   })
 
