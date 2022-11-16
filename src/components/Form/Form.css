@@ -1,6 +1,6 @@
 .form-header {
   margin-left: 35rem;
-  font-size: 200%
+  font-size: 200%;
 }
 
 .topic-title {
@@ -38,7 +38,7 @@
   padding: 1rem;
 }
 
-.saved-questions{
+.saved-questions {
   border: 3px solid red;
   color: red;
   padding: 1rem;
@@ -49,4 +49,3 @@
   color: lightblue;
   padding: 1rem;
 }
-

@@ -124,5 +124,5 @@ Form.propType = {
   numOfQuestions: PropTypes.string,
   topic: PropTypes.string,
   convertTopicToNumber: PropTypes.func.isRequired,
-  getQuestions: PropTypes.func.isRequired
-}
+  getQuestions: PropTypes.func.isRequired,
+};

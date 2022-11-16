@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./TriviaSelection.css"
+import "./TriviaSelection.css";
 
 const TriviaSelection = ({ selectCategory }) => {
   return (
@@ -11,7 +11,7 @@ const TriviaSelection = ({ selectCategory }) => {
         <button
           className="button"
           name="programming"
-          onClick={() => selectCategory('programming')}
+          onClick={() => selectCategory("programming")}
         >
           Programming
         </button>
@@ -20,7 +20,7 @@ const TriviaSelection = ({ selectCategory }) => {
         <button
           className="button"
           name="generalized"
-          onClick={() => selectCategory('generalized')}
+          onClick={() => selectCategory("generalized")}
         >
           Generalized
         </button>

@@ -74,7 +74,6 @@ class App extends Component {
       <main>
         <Routes>
           <Route
-          
             path="/"
             element={<TriviaSelection selectCategory={this.selectCategory} />}
           />
@@ -112,7 +111,7 @@ class App extends Component {
               />
             }
           />
-          <Route path='*' element={<Navigate to='/' replace /> } />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     );
@@ -140,5 +139,5 @@ App.propType = {
   saveQuestion: PropTypes.func.isRequired,
   showQuestion: PropTypes.func.isRequired,
   removeQuestion: PropTypes.func.isRequired,
-  startReview: PropTypes.func.isRequired
-}
+  startReview: PropTypes.func.isRequired,
+};

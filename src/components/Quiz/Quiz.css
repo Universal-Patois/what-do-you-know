@@ -1,4 +1,4 @@
-.card-container{
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -9,7 +9,7 @@
 }
 
 .question-number {
-  margin-left: 37rem
+  margin-left: 37rem;
 }
 
 .message {

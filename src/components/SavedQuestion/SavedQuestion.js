@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./SavedQuestion.css"
+import "./SavedQuestion.css";
 
-const SavedQuestion = ({questionNumber, questionTopic, question,removeQuestion, id}) => {
+const SavedQuestion = ({
+  questionNumber,
+  questionTopic,
+  question,
+  removeQuestion,
+  id,
+}) => {
   return (
     <div className="saved-question">
       <h2 className="number">Question {questionNumber}</h2>
@@ -10,8 +16,8 @@ const SavedQuestion = ({questionNumber, questionTopic, question,removeQuestion, 
       <h3 className="question">{question}</h3>
       <button onClick={() => removeQuestion(id)}>Remove Question</button>
     </div>
-  )
-}
+  );
+};
 
 export default SavedQuestion;
 
@@ -20,5 +26,5 @@ SavedQuestion.propType = {
   questionTopic: PropTypes.string,
   question: PropTypes.string,
   removeQuestion: PropTypes.func.isRequired,
-  id: PropTypes.number
-}
+  id: PropTypes.number,
+};

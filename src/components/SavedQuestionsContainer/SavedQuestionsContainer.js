@@ -56,5 +56,5 @@ export default SavedQuestionsContainer;
 SavedQuestionsContainer.propType = {
   savedQuestions: PropTypes.arrayOf(PropTypes.object),
   removeQuestion: PropTypes.func.isRequired,
-  startReview: PropTypes.func.isRequired
-}
+  startReview: PropTypes.func.isRequired,
+};
