@@ -15,6 +15,7 @@ class App extends Component {
       savedQuestions: [],
       quizQuestions: [],
       currentQuestion: {},
+      correctAnswer: ''
     };
   }
 
@@ -27,14 +28,17 @@ class App extends Component {
       ...this.state,
      quizQuestions: quizQuestions,
      currentQuestion: quizQuestions[0],
+     correctAnswer: quizQuestions[0].correctAnswer
     });
   };
+
+  
 
   showQuestion = (id) => {
     const question = this.state.quizQuestions.find(
       (question) => question.id === id
     );
-    this.setState({ ...this.state, currentQuestion: question });
+    this.setState({ ...this.state, currentQuestion: question , correctAnswer: question.correctAnswer});
   };
 
   render() {
@@ -63,8 +67,8 @@ class App extends Component {
                 quizQuestions={this.state.quizQuestions}
                 showQuestion={this.showQuestion}
                 currentQuestion={this.state.currentQuestion}
+                correctAnswer={this.state.correctAnswer}
                 triviaType={this.state.triviaType}
-                isChecked={this.isChecked}
               />
             }
           />

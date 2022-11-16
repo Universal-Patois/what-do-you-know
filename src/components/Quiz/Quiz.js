@@ -11,46 +11,18 @@ class Quiz extends Component {
     this.state = {
       correctAnswers: [],
       incorrectAnswers: [],
-      checked: false
+      score: 0
     }
   }
 
- handleChange = (event, correctAnswer) => {
-  this.setChecked()
-  const { value, checked} = event.target
-  if(checked && value === correctAnswer) {
-    // console.log(`${value} is ${checked}`)
-    this.setState({
-      correctAnswers: [...this.state.correctAnswers, value]
-    })
-  } else if (checked && value !== correctAnswer) {
-    // console.log(`${value} is ${checked}`)
-    this.setState({
-      incorrectAnswers: [...this.state.incorrectAnswers, value]
+  checkAnswer = () => {
+
+    if (this.props.correctAnswer === this.props.currentQuestion.correctAnswer) {
+      this.setState({
+        // correctAnswers: [...this.state.correctAnswers, correctAnswer], 
+        score: this.state.score + 1
       })
-  } else if (!checked) {
-    // console.log(`${value} is ${checked}`)
-    this.setState({
-      correctAnswers: [this.state.correctAnswers.filter((answer) => answer !== value )], 
-      incorrectAnswers: [this.state.incorrectAnswers.filter((answer) => answer !== value)]
-    })
-  }
- }
-
- setChecked = () => {
-  if(!this.state.checked) {
-    this.setState({checked: true})
-  } else {
-    this.setState({checked: false})
-  }
- }
-
-  saveQuestion = () => {
-
-  }
-
-  submitResults = () => {
-
+    }
   }
 
   render() {
@@ -77,8 +49,7 @@ class Quiz extends Component {
               choices={this.props.currentQuestion.choices}
               correctAnswer={this.props.currentQuestion.correctAnswer}
               id={this.props.currentQuestion.id}
-              handleChange={this.handleChange}
-              checked={this.state.checked}
+              checkAnswer={this.checkAnswer}
           />
         </> : <h1 className="message">'Please Wait. If nothing loads please go back to the Trivia Selection page'</h1>}
       </div>
