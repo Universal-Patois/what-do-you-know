@@ -68,7 +68,7 @@ class Quiz extends Component {
                   </h3>
                 </>
               ) : (
-                <h2 className="message">
+                <h2 className="load-message">
                   Please Wait. If Nothing Loads Please Go Back to the Trivia
                   Selection or Form Page and Make a Selection Again
                 </h2>
@@ -82,7 +82,7 @@ class Quiz extends Component {
           />
         )}
 
-        <nav className="nav">
+        <nav className="nav-bar">
           <NavLink className="trivia-selection" to="/">
             Back to Trivia Selection
           </NavLink>

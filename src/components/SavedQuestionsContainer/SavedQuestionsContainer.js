@@ -32,7 +32,7 @@ const SavedQuestionsContainer = ({
         </p>
       )}
       {savedQuestionsCards}
-      <nav className="nav">
+      <nav className="nav-container">
         <NavLink className="trivia" to="/">
           Trivia Selection
         </NavLink>

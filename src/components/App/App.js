@@ -71,7 +71,7 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main className="main">
         <Routes>
           <Route
             path="/"

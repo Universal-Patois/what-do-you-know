@@ -2,14 +2,15 @@
   margin-left: 16em;
 }
 
+.app-message {
+  margin-left: 19rem;
+}
+
 .button {
   margin-left: 23rem;
   width: 7rem;
   height: 5rem;
   font-size: medium;
+  background-color: rgb(148, 197, 149);
   border-radius: 7%;
-}
-
-.app-message {
-  margin-left: 19rem;
 }

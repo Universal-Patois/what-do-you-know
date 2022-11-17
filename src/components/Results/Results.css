@@ -1,0 +1,18 @@
+.container {
+  margin-top: 3rem;
+  margin-left: 30rem;
+}
+
+.header {  
+  border-radius: 45%;
+  height: 3rem;
+  width: 12rem;
+  background-color: #372772;
+}
+
+.saved {
+  font-weight: bold;
+  color: black;
+  background-color: #0c1c4422;
+  padding: 1rem;
+}

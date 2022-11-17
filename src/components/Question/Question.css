@@ -8,10 +8,8 @@
   padding: 1rem;
   width: 30rem;
   height: 4rem;
-  background-color: skyblue;
+  font-weight: bold;
+  border-radius: 20%;
+  background-color: rgb(73, 174, 214);
   cursor: pointer;
-}
-
-.selected {
-  background-color: darkcyan;
 }

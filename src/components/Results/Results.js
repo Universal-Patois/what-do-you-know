@@ -4,7 +4,7 @@ import "./Results.css";
 
 const Results = ({ quizQuestions, score }) => {
   return (
-    <div>
+    <div className="container">
       <h1 className="header">Your Results</h1>
       <section>
         <h3 className="questions">

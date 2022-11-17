@@ -11,10 +11,10 @@ const SavedQuestion = ({
 }) => {
   return (
     <div className="saved-question">
-      <h2 className="number">Question {questionNumber}</h2>
-      <h3 className="topic">{questionTopic}</h3>
-      <h3 className="question">{question}</h3>
-      <button onClick={() => removeQuestion(id)}>Remove Question</button>
+      <h2 className="question-number-2">Question {questionNumber}</h2>
+      <h3 className="question-topic">{questionTopic}</h3>
+      <h3 className="saved-question">{question}</h3>
+      <button className="remove-button"onClick={() => removeQuestion(id)}>Remove Question</button>
     </div>
   );
 };
