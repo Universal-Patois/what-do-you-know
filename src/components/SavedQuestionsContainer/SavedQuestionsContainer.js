@@ -32,7 +32,7 @@ const SavedQuestionsContainer = ({
         </p>
       )}
       {savedQuestionsCards}
-      <nav className="nav">
+      <nav className="nav-container">
         <NavLink className="trivia" to="/">
           Trivia Selection
         </NavLink>
@@ -56,5 +56,5 @@ export default SavedQuestionsContainer;
 SavedQuestionsContainer.propType = {
   savedQuestions: PropTypes.arrayOf(PropTypes.object),
   removeQuestion: PropTypes.func.isRequired,
-  startReview: PropTypes.func.isRequired
-}
+  startReview: PropTypes.func.isRequired,
+};

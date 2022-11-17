@@ -1,0 +1,32 @@
+.saved-questions-container {
+  display: grid;
+  margin-right: 17rem;
+}
+
+.saved {
+  width: 16rem;
+  margin-left: 30rem;
+}
+
+.message {
+  font-weight: bold;
+  font-size: 130%;
+}
+
+.trivia {
+  font-weight: bold;
+  color: black;
+  background-color: rgb(161, 232, 175);
+  padding: 1rem;
+}
+
+.review {
+  font-weight: bold;
+  color: #747c92;
+  background-color: rgb(55, 39, 144);
+  padding: 1rem;
+}
+.nav-container {
+  margin-top: 4rem;
+  margin-left: 28rem;
+}

@@ -1,0 +1,32 @@
+.saved-question {
+  font-weight: bold;
+  margin-left: 16rem;
+}
+
+.question-number-2 {
+  margin-left: 17rem;
+  width: 8rem;
+  border-radius: 45%;
+  height: 2rem;
+  font-weight: bold;
+  color: #747c92;
+  background-color: rgb(55, 39, 144);
+}
+
+.question-topic {
+  margin-left: 16rem;
+  width: 7rem;
+  border-radius: 45%;
+  height: 2rem;
+  font-weight: bold;
+  background-color: #a1e8af;
+}
+
+.remove-button {
+  margin-left: 16rem;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 3rem;
+  width: 8rem;
+  background-color: #94c595;
+}

@@ -1,23 +1,21 @@
-import React from "react"
+import React from "react";
 import PropTypes from "prop-types";
-import './QuestionCard.css'
+import "./QuestionCard.css";
 
-const QuestionCard = ({questionNumber, showQuestion, id}) => {
-  
+const QuestionCard = ({ questionNumber, showQuestion, id }) => {
   return (
     <div className="question-card">
-      <button 
-      className='card-button'
-      onClick={() => showQuestion(id)}>Question {questionNumber}
+      <button className="card-button" onClick={() => showQuestion(id)}>
+        Question {questionNumber}
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default QuestionCard
+export default QuestionCard;
 
-QuestionCard.propType ={
+QuestionCard.propType = {
   questionNumber: PropTypes.number,
   showQuestion: PropTypes.func.isRequired,
-  id: PropTypes.number
-}
+  id: PropTypes.number,
+};

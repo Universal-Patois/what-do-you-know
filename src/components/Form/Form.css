@@ -1,29 +1,52 @@
 .form-header {
+  border-radius: 45%;
+  height: 3rem;
+  background-color: #372772;
+  width: 20rem;
   margin-left: 35rem;
-  font-size: 200%
+  font-size: 200%;
 }
 
 .topic-title {
+  border-radius: 45%;
+  height: 2rem;
+  width: 11rem;
+  background-color: #94c595;
   margin-left: 10rem;
 }
 
 .topic-dropdown {
+  font-weight: bold;
+  width: 10rem;
   margin-left: 5rem;
 }
 
 .difficulty-title {
+  width: 14rem;
+  border-radius: 45%;
+  height: 2rem;
+  color: #747c92;
+  background-color: #3a2449;
   margin-left: 50rem;
 }
 
 .difficulty-dropdown {
-  margin-left: 20rem;
+  width: 1em;
+  font-weight: bold;
+  margin-left: 24rem;
 }
 
 .numQuestions-title {
+  background-color: #a1e8af;
+  width: 15rem;
+  border-radius: 45%;
+  height: 2rem;
+  margin-top: 4rem;
   margin-left: 25rem;
 }
 
 .numQuestions-dropdown {
+  font-weight: bold;
   margin-left: 10rem;
 }
 
@@ -33,20 +56,26 @@
 }
 
 .trivia-selection {
-  border: 3px solid yellowgreen;
-  color: yellowgreen;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(161, 232, 175);
   padding: 1rem;
 }
 
-.saved-questions{
-  border: 3px solid red;
-  color: red;
+.saved-questions {
+  font-weight: bold;
+  color: #747c92;
+  background-color: rgb(55, 39, 144);
   padding: 1rem;
 }
 
 .quiz {
-  border: 3px solid lightblue;
-  color: lightblue;
+  font-weight: bold;
+  color: black;
+  background-color: #94c595;
   padding: 1rem;
 }
 
+.rdn-control-placeholder {
+  margin-left: 1rem;
+}
