@@ -79,7 +79,7 @@ class Form extends Component {
           <h2 className="difficulty-title">Choose a Difficulty</h2>
           <Dropdown
             className="difficulty-dropdown"
-            options={["Easy"]}
+            options={["Easy", "Medium", "Hard"]}
             onSelect={(selection) =>
               this.setState({ difficulty: selection.value })
             }
