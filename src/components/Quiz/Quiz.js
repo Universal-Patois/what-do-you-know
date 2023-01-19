@@ -25,7 +25,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
 
   return (
     <>
-      {!this.state.submitted ? (
+      {!submitted ? (
         <>
           <div className="card-container">
             {quizQuestions.map((question, index) => (
