@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./Quiz.css";
 import QuestionCard from "../QuestionCard/QuestionCard";
 import Question from "../Question/Question";
@@ -6,114 +6,105 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import Results from "../Results/Results";
 
-class Quiz extends Component {
-  constructor() {
-    super();
-    this.state = {
-      correctAnswers: [],
-      score: 0,
-      submitted: false,
-    };
-  }
 
-  checkAnswer = (event) => {
+const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, saveQuestion }) => {
+
+  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [score, setScore] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+
+  const checkAnswer = (event) => {
     if (
-      event.currentTarget.value === this.props.currentQuestion.correctAnswer &&
-      !this.state.correctAnswers.includes(event.currentTarget.value)
+      event.currentTarget.value === currentQuestion.correctAnswer &&
+      !correctAnswers.includes(event.currentTarget.value)
     ) {
-      this.setState({
-        correctAnswers: [
-          ...this.state.correctAnswers,
-          this.props.correctAnswer,
-        ],
-        score: this.state.score + 1,
-      });
+      setCorrectAnswers([...correctAnswers, correctAnswer]);
+      setScore(score + 1);
     }
   };
 
-  render() {
-    return (
-      <>
-        {!this.state.submitted ? (
-          <>
-            <div className="card-container">
-              {this.props.quizQuestions.map((question, index) => (
-                <QuestionCard
-                  questionNumber={index + 1}
-                  question={question.question}
-                  showQuestion={this.props.showQuestion}
-                  id={question.id}
-                  key={question.id}
-                />
-              ))}
-            </div>
-            <div className="question-container">
-              {this.props.currentQuestion.choices &&
-              this.props.currentQuestion.choices.length ? (
-                <>
-                  <h3 className="question-number">
-                    Question {this.props.currentQuestion.questionNumber}
-                  </h3>
-                  <h2 className="question">
-                    {this.props.currentQuestion.question}
-                  </h2>
-                  <Question
-                    choices={this.props.currentQuestion.choices}
-                    id={this.props.currentQuestion.id}
-                    checkAnswer={this.checkAnswer}
-                  />
-
-                  <h3 className="message">
-                    The Last Answer that is Clicked will be Saved
-                  </h3>
-                </>
-              ) : (
-                <h2 className="load-message">
-                  Please Wait. If Nothing Loads Please Go Back to the Trivia
-                  Selection or Form Page and Make a Selection Again
+  return (
+    <>
+      {!this.state.submitted ? (
+        <>
+          <div className="card-container">
+            {quizQuestions.map((question, index) => (
+              <QuestionCard
+                questionNumber={index + 1}
+                question={question.question}
+                showQuestion={showQuestion}
+                id={question.id}
+                key={question.id}
+              />
+            ))}
+          </div>
+          <div className="question-container">
+            {currentQuestion.choices &&
+            currentQuestion.choices.length ? (
+              <>
+                <h3 className="question-number">
+                  Question {currentQuestion.questionNumber}
+                </h3>
+                <h2 className="question">
+                  {currentQuestion.question}
                 </h2>
-              )}
-            </div>
-          </>
-        ) : (
-          <Results
-            quizQuestions={this.props.quizQuestions}
-            score={this.state.score}
-          />
-        )}
+                <Question
+                  choices={currentQuestion.choices}
+                  id={currentQuestion.id}
+                  checkAnswer={checkAnswer}
+                />
 
-        <nav className="nav-bar">
-          <NavLink className="trivia-selection" to="/">
-            Back to Trivia Selection
-          </NavLink>
-          <NavLink className="form" to="/form">
-            Form Page
-          </NavLink>
-          {!this.state.submitted && (
-            <>
-              <NavLink className="save" onClick={this.props.saveQuestion}>
-                Save Question
-              </NavLink>
-              <NavLink
-                className="results"
-                onClick={() => this.setState({ submitted: true })}
-              >
-                See Results
-              </NavLink>
-            </>
-          )}
-          {this.state.submitted && (
-            <>
-              <NavLink className="saved" to="/saved-questions">
-                Saved Questions
-              </NavLink>
-            </>
-          )}
-        </nav>
-      </>
-    );
-  }
+                <h3 className="message">
+                  The Last Answer that is Clicked will be Saved
+                </h3>
+              </>
+            ) : (
+              <h2 className="load-message">
+                Please Wait. If Nothing Loads Please Go Back to the Trivia
+                Selection or Form Page and Make a Selection Again
+              </h2>
+            )}
+          </div>
+        </>
+      ) : (
+        <Results
+          quizQuestions={quizQuestions}
+          score={score}
+        />
+      )}
+
+      <nav className="nav-bar">
+        <NavLink className="trivia-selection" to="/">
+          Back to Trivia Selection
+        </NavLink>
+        <NavLink className="form" to="/form">
+          Form Page
+        </NavLink>
+        {!submitted && (
+          <>
+            <NavLink className="save" onClick={saveQuestion}>
+              Save Question
+            </NavLink>
+            <NavLink
+              className="results"
+              onClick={() => setSubmitted(true)}
+            >
+              See Results
+            </NavLink>
+          </>
+        )}
+        {submitted && (
+          <>
+            <NavLink className="saved" to="/saved-questions">
+              Saved Questions
+            </NavLink>
+          </>
+        )}
+      </nav>
+    </>
+  );
 }
+
 
 export default Quiz;
 

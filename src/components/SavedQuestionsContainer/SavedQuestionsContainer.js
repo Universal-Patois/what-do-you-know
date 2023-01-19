@@ -4,11 +4,8 @@ import PropTypes from "prop-types";
 import SavedQuestion from "../SavedQuestion/SavedQuestion";
 import "./SavedQuestionsContainer.css";
 
-const SavedQuestionsContainer = ({
-  savedQuestions,
-  removeQuestion,
-  startReview,
-}) => {
+const SavedQuestionsContainer = ({savedQuestions, removeQuestion, startReview}) => {
+  
   const savedQuestionsCards = savedQuestions.map((question, index) => {
     return (
       <SavedQuestion
