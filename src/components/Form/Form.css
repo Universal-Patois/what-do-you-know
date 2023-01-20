@@ -3,22 +3,26 @@
   height: 3rem;
   background-color: #372772;
   width: 20rem;
-  margin-left: 35rem;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
   font-size: 200%;
 }
+
+.form-selections {
+  margin-bottom: 10rem;
+}
+
 
 .topic-title {
   border-radius: 45%;
   height: 2rem;
   width: 11rem;
   background-color: #94c595;
-  margin-left: 10rem;
 }
 
 .topic-dropdown {
   font-weight: bold;
   width: 10rem;
-  margin-left: 5rem;
 }
 
 .difficulty-title {
@@ -27,13 +31,13 @@
   height: 2rem;
   color: #747c92;
   background-color: #3a2449;
-  margin-left: 50rem;
+
 }
 
 .difficulty-dropdown {
   width: 1em;
   font-weight: bold;
-  margin-left: 24rem;
+ 
 }
 
 .numQuestions-title {
@@ -41,18 +45,16 @@
   width: 15rem;
   border-radius: 45%;
   height: 2rem;
-  margin-top: 4rem;
-  margin-left: 25rem;
+
 }
 
 .numQuestions-dropdown {
   font-weight: bold;
-  margin-left: 10rem;
+
 }
 
 .form-nav {
-  margin-left: 30rem;
-  margin-top: 10rem;
+
 }
 
 .trivia-selection {
@@ -76,6 +78,4 @@
   padding: 1rem;
 }
 
-.rdn-control-placeholder {
-  margin-left: 1rem;
-}
+
