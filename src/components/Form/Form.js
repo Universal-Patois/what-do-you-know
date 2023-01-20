@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Dropdown } from "react-dropdown-now";
+
 import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -50,7 +51,7 @@ const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }) =
         <div className="form-selections">
           <Row>
             <Col>
-              <div className="topic" style={{marginBottom: "2rem"}}>
+              <div className="topic" style={{marginBottom: "2rem"}} >
                 <h2 className="topic-title">Choose a Topic</h2>
                 <Dropdown
                   className="topic-dropdown"

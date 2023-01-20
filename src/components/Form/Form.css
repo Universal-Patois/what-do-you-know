@@ -14,9 +14,8 @@
 
 
 .topic-title {
-  border-radius: 45%;
-  height: 2rem;
-  width: 11rem;
+  width: 15rem;
+  border-radius: 10%;
   background-color: #94c595;
 }
 
@@ -26,9 +25,8 @@
 }
 
 .difficulty-title {
-  width: 14rem;
-  border-radius: 45%;
-  height: 2rem;
+  width: 17rem;
+  border-radius: 10%;
   color: #747c92;
   background-color: #3a2449;
 
@@ -42,18 +40,12 @@
 
 .numQuestions-title {
   background-color: #a1e8af;
-  width: 15rem;
-  border-radius: 45%;
-  height: 2rem;
-
+  border-radius: 10%;
+  width: 12em;
 }
 
 .numQuestions-dropdown {
   font-weight: bold;
-
-}
-
-.form-nav {
 
 }
 
@@ -77,5 +69,18 @@
   background-color: #94c595;
   padding: 1rem;
 }
+
+/* @media only screen and (min-width: 576px) {
+  .rdn-control-placeholder {
+    margin-top: 1rem;
+   }
+} */
+
+/* @media only screen and (min-width: 768px) {
+  .rdn-control-placeholder {
+    margin-top: 1rem;
+   }
+} */
+
 
 
