@@ -8,19 +8,29 @@ import Form from "../Form/Form";
 import Quiz from "../Quiz/Quiz";
 import "./App.css";
 
+type Question = {
+  id: number;
+  questionNumber: number;
+  topic: string;
+  difficulty: string;
+  question: string;
+  correctAnswer: string;
+  choices: string[];
+}
+
 const App = () => {
 
   const [triviaType, setTriviaType] = useState('')
   const [savedQuestions, setSavedQuestions] = useState([])
-  const [quizQuestions, setQuizQuestions] = useState([])
-  const [currentQuestion, setCurrentQuestion] = useState({})
+  const [quizQuestions, setQuizQuestions] = useState<Question[]>([])
+  const [currentQuestion, setCurrentQuestion] = useState(null || {})
   const [correctAnswer, setCorrectAnswer] = useState('')
 
-  const selectCategory = (type) => {
+  const selectCategory = (type: string) => {
     setTriviaType(type)
   };
 
-  const addQuestions = (quizQuestions) => {
+  const addQuestions = (quizQuestions: Question[]) => {
     setQuizQuestions(quizQuestions)
     setCurrentQuestion(quizQuestions[0])
     setCorrectAnswer(quizQuestions[0].correctAnswer)
@@ -31,7 +41,7 @@ const App = () => {
       setSavedQuestions([...savedQuestions, currentQuestion]);
   };
 
-  const showQuestion = (id) => {
+  const showQuestion = (id: number) => {
     const question = quizQuestions.find( (question) => question.id === id)
     setCurrentQuestion(question)
     setCorrectAnswer(question.correctAnswer)

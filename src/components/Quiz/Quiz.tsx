@@ -24,54 +24,54 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
   };
 
   return (
-    <>
-      {!submitted ? (
-        <>
-          <div className="card-container">
-            {quizQuestions.map((question, index) => (
-              <QuestionCard
-                questionNumber={index + 1}
-                question={question.question}
-                showQuestion={showQuestion}
-                id={question.id}
-                key={question.id}
-              />
-            ))}
-          </div>
-          <div className="question-container">
-            {currentQuestion.choices &&
-            currentQuestion.choices.length ? (
-              <>
-                <h3 className="question-number">
-                  Question {currentQuestion.questionNumber}
-                </h3>
-                <h2 className="question">
-                  {currentQuestion.question}
-                </h2>
-                <Question
-                  choices={currentQuestion.choices}
-                  id={currentQuestion.id}
-                  checkAnswer={checkAnswer}
-                />
+    // <>
+    //   {!submitted ? (
+    //     <>
+    //       <div className="card-container">
+    //         {quizQuestions.map((question, index) => (
+    //           <QuestionCard
+    //             questionNumber={index + 1}
+    //             question={question.question}
+    //             showQuestion={showQuestion}
+    //             id={question.id}
+    //             key={question.id}
+    //           />
+    //         ))}
+    //       </div>
+    //       <div className="question-container">
+    //         {currentQuestion.choices &&
+    //         currentQuestion.choices.length ? (
+    //           <>
+    //             <h3 className="question-number">
+    //               Question {currentQuestion.questionNumber}
+    //             </h3>
+    //             <h2 className="question">
+    //               {currentQuestion.question}
+    //             </h2>
+    //             <Question
+    //               choices={currentQuestion.choices}
+    //               id={currentQuestion.id}
+    //               checkAnswer={checkAnswer}
+    //             />
 
-                <h3 className="message">
-                  The Last Answer that is Clicked will be Saved
-                </h3>
-              </>
-            ) : (
-              <h2 className="load-message">
-                Please Wait. If Nothing Loads Please Go Back to the Trivia
-                Selection or Form Page and Make a Selection Again
-              </h2>
-            )}
-          </div>
-        </>
-      ) : (
-        <Results
-          quizQuestions={quizQuestions}
-          score={score}
-        />
-      )}
+    //             <h3 className="message">
+    //               The Last Answer that is Clicked will be Saved
+    //             </h3>
+    //           </>
+    //         ) : (
+    //           <h2 className="load-message">
+    //             Please Wait. If Nothing Loads Please Go Back to the Trivia
+    //             Selection or Form Page and Make a Selection Again
+    //           </h2>
+    //         )}
+    //       </div>
+    //     </>
+    //   ) : (
+    //     <Results
+    //       quizQuestions={quizQuestions}
+    //       score={score}
+    //     />
+    //   )}
 
       <nav className="nav-bar">
         {submitted && (
@@ -101,7 +101,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
           </>
         )}
       </nav>
-    </>
+    // </>
   );
 }
 
