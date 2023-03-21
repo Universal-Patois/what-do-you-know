@@ -101,7 +101,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
           </>
         )}
       </nav>
-    </>
+    // </>
   );
 }
 
