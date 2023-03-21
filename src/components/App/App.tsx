@@ -20,10 +20,10 @@ type Question = {
 
 const App = () => {
 
-  const [triviaType, setTriviaType] = useState('')
-  const [savedQuestions, setSavedQuestions] = useState([])
+  const [triviaType, setTriviaType] = useState('' as string)
+  const [savedQuestions, setSavedQuestions] = useState([] as Question[])
   const [quizQuestions, setQuizQuestions] = useState<Question[]>([])
-  const [currentQuestion, setCurrentQuestion] = useState(null || {})
+  const [currentQuestion, setCurrentQuestion] = useState(null || {} as Question)
   const [correctAnswer, setCorrectAnswer] = useState('')
 
   const selectCategory = (type: string) => {
@@ -42,12 +42,14 @@ const App = () => {
   };
 
   const showQuestion = (id: number) => {
-    const question = quizQuestions.find( (question) => question.id === id)
-    setCurrentQuestion(question)
-    setCorrectAnswer(question.correctAnswer)
+    const question = quizQuestions.find( (question: Question) => question.id === id)
+    if(question) {
+      setCurrentQuestion(question)
+      setCorrectAnswer(question.correctAnswer)
+    }
   };
 
-  const removeQuestion = (id) => {
+  const removeQuestion = (id: number) => {
     const updatedQuestions = savedQuestions.filter( (question) => question.id !== id)
     setSavedQuestions(updatedQuestions)
   };
@@ -75,7 +77,6 @@ const App = () => {
             showQuestion={showQuestion} 
             currentQuestion={currentQuestion} 
             correctAnswer={correctAnswer} 
-            triviaType={triviaType} 
             saveQuestion={saveQuestion} 
           />} />
         <Route path="/saved-questions" element={
