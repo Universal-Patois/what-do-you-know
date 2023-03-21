@@ -25,7 +25,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
 
   return (
     <>
-      {!this.state.submitted ? (
+      {!submitted ? (
         <>
           <div className="card-container">
             {quizQuestions.map((question, index) => (
@@ -74,6 +74,13 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
       )}
 
       <nav className="nav-bar">
+        {submitted && (
+          <>
+            <NavLink className="saved" to="/saved-questions">
+              Saved Questions
+            </NavLink>
+          </>
+        )}
         <NavLink className="trivia-selection" to="/">
           Back to Trivia Selection
         </NavLink>
@@ -90,13 +97,6 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
               onClick={() => setSubmitted(true)}
             >
               See Results
-            </NavLink>
-          </>
-        )}
-        {submitted && (
-          <>
-            <NavLink className="saved" to="/saved-questions">
-              Saved Questions
             </NavLink>
           </>
         )}

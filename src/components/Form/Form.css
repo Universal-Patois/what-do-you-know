@@ -3,56 +3,50 @@
   height: 3rem;
   background-color: #372772;
   width: 20rem;
-  margin-left: 35rem;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
   font-size: 200%;
 }
 
+.form-selections {
+  margin-bottom: 10rem;
+}
+
+
 .topic-title {
-  border-radius: 45%;
-  height: 2rem;
-  width: 11rem;
+  width: 15rem;
+  border-radius: 10%;
   background-color: #94c595;
-  margin-left: 10rem;
 }
 
 .topic-dropdown {
   font-weight: bold;
   width: 10rem;
-  margin-left: 5rem;
 }
 
 .difficulty-title {
-  width: 14rem;
-  border-radius: 45%;
-  height: 2rem;
+  width: 17rem;
+  border-radius: 10%;
   color: #747c92;
   background-color: #3a2449;
-  margin-left: 50rem;
+
 }
 
 .difficulty-dropdown {
   width: 1em;
   font-weight: bold;
-  margin-left: 24rem;
+ 
 }
 
 .numQuestions-title {
   background-color: #a1e8af;
-  width: 15rem;
-  border-radius: 45%;
-  height: 2rem;
-  margin-top: 4rem;
-  margin-left: 25rem;
+  border-radius: 10%;
+  width: 12em;
 }
 
 .numQuestions-dropdown {
   font-weight: bold;
-  margin-left: 10rem;
-}
 
-.form-nav {
-  margin-left: 30rem;
-  margin-top: 10rem;
 }
 
 .trivia-selection {
@@ -76,6 +70,17 @@
   padding: 1rem;
 }
 
-.rdn-control-placeholder {
-  margin-left: 1rem;
-}
+/* @media only screen and (min-width: 576px) {
+  .rdn-control-placeholder {
+    margin-top: 1rem;
+   }
+} */
+
+/* @media only screen and (min-width: 768px) {
+  .rdn-control-placeholder {
+    margin-top: 1rem;
+   }
+} */
+
+
+

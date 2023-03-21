@@ -1,16 +1,21 @@
+.start-page-container {
+  margin-top: 6rem;
+}
+
 .app-header {
-  margin-left: 16em;
+  margin-bottom: 3rem;
 }
 
 .app-message {
-  margin-left: 19rem;
+  margin-top: 3rem;
 }
 
 .button {
-  margin-left: 23rem;
-  width: 7rem;
+  width: 8rem;
   height: 5rem;
   font-size: medium;
   background-color: rgb(148, 197, 149);
   border-radius: 7%;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
