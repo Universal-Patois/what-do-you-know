@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { QuestionInterface } from "../../interfaces/interfaces";
 import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
 import TriviaSelection from "../TriviaSelection/TriviaSelection";
 import SavedQuestionsContainer from "../SavedQuestionsContainer/SavedQuestionsContainer";
@@ -8,29 +9,19 @@ import Form from "../Form/Form";
 import Quiz from "../Quiz/Quiz";
 import "./App.css";
 
-type Question = {
-  id: number;
-  questionNumber: number;
-  topic: string;
-  difficulty: string;
-  question: string;
-  correctAnswer: string;
-  choices: string[];
-}
-
 const App = () => {
 
   const [triviaType, setTriviaType] = useState('' as string)
-  const [savedQuestions, setSavedQuestions] = useState([] as Question[])
-  const [quizQuestions, setQuizQuestions] = useState<Question[]>([])
-  const [currentQuestion, setCurrentQuestion] = useState(null || {} as Question)
+  const [savedQuestions, setSavedQuestions] = useState([] as QuestionInterface[])
+  const [quizQuestions, setQuizQuestions] = useState<QuestionInterface[]>([])
+  const [currentQuestion, setCurrentQuestion] = useState(null || {} as QuestionInterface)
   const [correctAnswer, setCorrectAnswer] = useState('')
 
   const selectCategory = (type: string) => {
     setTriviaType(type)
   };
 
-  const addQuestions = (quizQuestions: Question[]) => {
+  const addQuestions = (quizQuestions: QuestionInterface[]) => {
     setQuizQuestions(quizQuestions)
     setCurrentQuestion(quizQuestions[0])
     setCorrectAnswer(quizQuestions[0].correctAnswer)
@@ -42,15 +33,15 @@ const App = () => {
   };
 
   const showQuestion = (id: number) => {
-    const question = quizQuestions.find( (question: Question) => question.id === id)
-    if(question) {
+    const question = quizQuestions.find((question: QuestionInterface) => question.id === id)
+    if (question) {
       setCurrentQuestion(question)
       setCorrectAnswer(question.correctAnswer)
     }
   };
 
   const removeQuestion = (id: number) => {
-    const updatedQuestions = savedQuestions.filter( (question) => question.id !== id)
+    const updatedQuestions = savedQuestions.filter((question) => question.id !== id)
     setSavedQuestions(updatedQuestions)
   };
 
@@ -65,27 +56,27 @@ const App = () => {
       <Routes>
         <Route path="/" element={<TriviaSelection selectCategory={selectCategory} />} />
         <Route path="/form" element={
-          <Form 
-            triviaType={triviaType} 
+          <Form
+            triviaType={triviaType}
             fetchCodingData={fetchCodingData}
-            fetchGeneralData={fetchGeneralData} 
-            addQuestions={addQuestions} 
+            fetchGeneralData={fetchGeneralData}
+            addQuestions={addQuestions}
           />} />
         <Route path="/quiz" element={
-          <Quiz 
+          <Quiz
             quizQuestions={quizQuestions}
-            showQuestion={showQuestion} 
-            currentQuestion={currentQuestion} 
-            correctAnswer={correctAnswer} 
-            saveQuestion={saveQuestion} 
+            showQuestion={showQuestion}
+            currentQuestion={currentQuestion}
+            correctAnswer={correctAnswer}
+            saveQuestion={saveQuestion}
           />} />
         <Route path="/saved-questions" element={
-          <SavedQuestionsContainer 
-            savedQuestions={savedQuestions} 
-            removeQuestion={removeQuestion} 
-            startReview={startReview} 
+          <SavedQuestionsContainer
+            savedQuestions={savedQuestions}
+            removeQuestion={removeQuestion}
+            startReview={startReview}
           />} />
-        <Route path="*" element={<Navigate to="/"  replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </main>
   );

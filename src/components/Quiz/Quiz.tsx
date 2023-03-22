@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { MouseEvent, useState } from "react";
+import { QuestionInterface } from "../../interfaces/interfaces";
 import "./Quiz.css";
 import QuestionCard from "../QuestionCard/QuestionCard";
 import Question from "../Question/Question";
@@ -6,14 +7,21 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import Results from "../Results/Results";
 
+type QuizProps = {
+  correctAnswer: string;
+  currentQuestion: QuestionInterface;
+  quizQuestions: QuestionInterface[];
+  showQuestion: (id: number) => void;
+  saveQuestion: () => void;
+}
 
-const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, saveQuestion }) => {
+const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, saveQuestion }: QuizProps) => {
 
-  const [correctAnswers, setCorrectAnswers] = useState([]);
-  const [score, setScore] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState([] as string[]);
+  const [score, setScore] = useState(0 as number);
+  const [submitted, setSubmitted] = useState(false as boolean);
 
-  const checkAnswer = (event) => {
+  const checkAnswer = (event: MouseEvent<HTMLButtonElement>) => {
     if (
       event.currentTarget.value === currentQuestion.correctAnswer &&
       !correctAnswers.includes(event.currentTarget.value)
@@ -40,7 +48,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
           </div>
           <div className="question-container">
             {currentQuestion.choices &&
-            currentQuestion.choices.length ? (
+              currentQuestion.choices.length ? (
               <>
                 <h3 className="question-number">
                   Question {currentQuestion.questionNumber}
@@ -101,7 +109,7 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
           </>
         )}
       </nav>
-    // </>
+    </>
   );
 }
 

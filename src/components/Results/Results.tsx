@@ -1,8 +1,13 @@
-import React from "react";
+import { QuestionInterface } from "../../interfaces/interfaces";
 import PropTypes from "prop-types";
 import "./Results.css";
 
-const Results = ({ quizQuestions, score }) => {
+type ResultsProps = {
+  quizQuestions: QuestionInterface[];
+  score: number;
+};
+
+const Results = ({ quizQuestions, score }: ResultsProps) => {
   return (
     <div className="container">
       <h1 className="header">Your Results</h1>

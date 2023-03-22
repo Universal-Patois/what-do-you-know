@@ -2,7 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Question.css";
 
-const Question = ({ id, choices, checkAnswer }) => {
+type QuestionProps = {
+  id: number;
+  choices: string[];
+  checkAnswer: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+const Question = ({ id, choices, checkAnswer }: QuestionProps) => {
   return (
     <div className="choice-container">
       {choices.map(

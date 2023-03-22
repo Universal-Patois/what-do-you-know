@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { QuestionInterface, Lookup, Selection } from "../../interfaces/interfaces";
 import PropTypes from "prop-types";
 import { Dropdown } from "react-dropdown-now";
 import { NavLink } from "react-router-dom";
@@ -8,16 +9,23 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Form.css";
 
-const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }) => {
+type FormProps = {
+  triviaType: string;
+  fetchCodingData: (difficulty: string, numOfQuestions: string, topic: string) => Promise<any>;
+  fetchGeneralData: (numOfQuestions: string, topic: string, difficulty: string) => Promise<any>;
+  addQuestions: (quizQuestions: QuestionInterface[]) => void;
+};
+
+const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: FormProps) => {
 
   const [codeOptions] = useState(["JavaScript", "HTML", "PHP", "Laravel"]);
   const [generalOptions] = useState(["Geography", "History", "Science & Nature", "Science: Computers", "Animals"]);
   const [difficulty, setDifficulty] = useState("");
   const [numOfQuestions, setNumOfQuestions] = useState("");
-  const [topic, setTopic] = useState("");
+  const [topic, setTopic] = useState(0);
 
-  const convertTopicToNumber = (topic) => {
-    const lookup = {
+  const convertTopicToNumber = (topic: string) => {
+    const lookup: Lookup = {
       Geography: 22,
       History: 23,
       "Science & Nature": 17,
