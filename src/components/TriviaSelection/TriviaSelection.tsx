@@ -8,7 +8,11 @@ import PropTypes from "prop-types";
 import "./TriviaSelection.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const TriviaSelection = ({ selectCategory }) => {
+type TriviaSelectionProps = {
+  selectCategory: (category: string) => void;
+};
+
+const TriviaSelection = ({ selectCategory }: TriviaSelectionProps) => {
   return (
     <Container fluid="md">
       <Row>

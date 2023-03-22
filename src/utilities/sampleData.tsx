@@ -5,7 +5,7 @@
   difficulty: "Easy"
   question: "How do you round the number 7.25, to the nearest integer?"
   correct_answer: "answer_a"
-  choices: {answer_a: 'Math.round(7.25)', answer_b: 'round(7.25)', answer_c: 'rnd(7.25)', answer_d: 'Math.rnd(7.25)', answer_e:}
+  choices: {answer_a: "Math.round(7.25)", answer_b: 'round(7.25)', answer_c: 'rnd(7.25)', answer_d: 'Math.rnd(7.25)', answer_e:}
 }
 // Quiz Api- Coding: Raw
 {
