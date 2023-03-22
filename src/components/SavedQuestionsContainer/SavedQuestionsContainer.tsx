@@ -1,10 +1,16 @@
-import React from "react";
+import { QuestionInterface } from "../../interfaces/interfaces";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import SavedQuestion from "../SavedQuestion/SavedQuestion";
 import "./SavedQuestionsContainer.css";
 
-const SavedQuestionsContainer = ({savedQuestions, removeQuestion, startReview}) => {
+type SavedQuestionsContainerProps = {
+  savedQuestions: QuestionInterface[];
+  removeQuestion: (id: number) => void;
+  startReview: () => void;
+};
+
+const SavedQuestionsContainer = ({savedQuestions, removeQuestion, startReview}: SavedQuestionsContainerProps) => {
   
   const savedQuestionsCards = savedQuestions.map((question, index) => {
     return (
