@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import "./QuestionCard.css";
+import PropTypes from 'prop-types';
+import './QuestionCard.css';
 
 type QuestionCardProps = {
   questionNumber: number;
   showQuestion: (id: number) => void;
   id: number;
-}
+};
 
 const QuestionCard = ({ questionNumber, showQuestion, id }: QuestionCardProps) => {
   return (
@@ -22,5 +22,5 @@ export default QuestionCard;
 QuestionCard.propType = {
   questionNumber: PropTypes.number,
   showQuestion: PropTypes.func.isRequired,
-  id: PropTypes.number,
+  id: PropTypes.number
 };

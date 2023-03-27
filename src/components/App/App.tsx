@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import PropTypes from "prop-types";
-import { QuestionInterface } from "../../interfaces/interfaces";
-import { fetchCodingData, fetchGeneralData } from "../../utilities/apiCalls";
-import TriviaSelection from "../TriviaSelection/TriviaSelection";
-import SavedQuestionsContainer from "../SavedQuestionsContainer/SavedQuestionsContainer";
-import Form from "../Form/Form";
-import Quiz from "../Quiz/Quiz";
-import "./App.css";
+import { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { QuestionInterface } from '../../interfaces/interfaces';
+import { fetchCodingData, fetchGeneralData } from '../../utilities/apiCalls';
+import TriviaSelection from '../TriviaSelection/TriviaSelection';
+import SavedQuestionsContainer from '../SavedQuestionsContainer/SavedQuestionsContainer';
+import Form from '../Form/Form';
+import Quiz from '../Quiz/Quiz';
+import './App.css';
 
 const App = () => {
 
@@ -15,7 +15,7 @@ const App = () => {
   const [savedQuestions, setSavedQuestions] = useState([] as QuestionInterface[])
   const [quizQuestions, setQuizQuestions] = useState<QuestionInterface[]>([])
   const [currentQuestion, setCurrentQuestion] = useState(null || {} as QuestionInterface)
-  const [correctAnswer, setCorrectAnswer] = useState('')
+  const [correctAnswer, setCorrectAnswer] = useState('' as string)
 
   const selectCategory = (type: string) => {
     setTriviaType(type)
@@ -41,7 +41,7 @@ const App = () => {
   };
 
   const removeQuestion = (id: number) => {
-    const updatedQuestions = savedQuestions.filter((question) => question.id !== id)
+    const updatedQuestions = savedQuestions.filter(question => question.id !== id)
     setSavedQuestions(updatedQuestions)
   };
 
@@ -96,7 +96,7 @@ App.propType = {
     id: PropTypes.number,
     question: PropTypes.string,
     questionNumber: PropTypes.number,
-    topic: PropTypes.string,
+    topic: PropTypes.string
   }),
   correctAnswer: PropTypes.string,
   selectCategory: PropTypes.func.isRequired,
@@ -104,5 +104,5 @@ App.propType = {
   saveQuestion: PropTypes.func.isRequired,
   showQuestion: PropTypes.func.isRequired,
   removeQuestion: PropTypes.func.isRequired,
-  startReview: PropTypes.func.isRequired,
+  startReview: PropTypes.func.isRequired
 };

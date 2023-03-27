@@ -1,11 +1,11 @@
-import { MouseEvent, useState } from "react";
-import { QuestionInterface } from "../../interfaces/interfaces";
-import "./Quiz.css";
-import QuestionCard from "../QuestionCard/QuestionCard";
-import Question from "../Question/Question";
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import Results from "../Results/Results";
+import { MouseEvent, useState } from 'react';
+import { QuestionInterface } from '../../interfaces/interfaces';
+import './Quiz.css';
+import QuestionCard from '../QuestionCard/QuestionCard';
+import Question from '../Question/Question';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import Results from '../Results/Results';
 
 type QuizProps = {
   correctAnswer: string;
@@ -125,6 +125,6 @@ Quiz.propType = {
     id: PropTypes.number,
     question: PropTypes.string,
     questionNumber: PropTypes.number,
-    topic: PropTypes.string,
-  }),
+    topic: PropTypes.string
+  })
 };

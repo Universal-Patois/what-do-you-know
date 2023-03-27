@@ -1,38 +1,38 @@
-import { useState } from "react";
-import { QuestionInterface, Lookup, Selection } from "../../interfaces/interfaces";
-import PropTypes from "prop-types";
-import { Dropdown } from "react-dropdown-now";
-import { NavLink } from "react-router-dom";
+import { useState } from 'react';
+import { QuestionInterface, Lookup } from '../../interfaces/interfaces';
+import PropTypes from 'prop-types';
+import { Dropdown } from 'react-dropdown-now';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Form.css";
+import './Form.css';
 
 type FormProps = {
   triviaType: string;
-  fetchCodingData: (difficulty: string, numOfQuestions: string, topic: string) => Promise<any>;
-  fetchGeneralData: (numOfQuestions: string, topic: string, difficulty: string) => Promise<any>;
+  fetchCodingData: (difficulty: string, numOfQuestions: number, topic: string) => Promise<QuestionInterface[]>;
+  fetchGeneralData: (numOfQuestions: number, topic: number, difficulty: string) => Promise<QuestionInterface[]>;
   addQuestions: (quizQuestions: QuestionInterface[]) => void;
 };
 
 const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: FormProps) => {
 
-  const [codeOptions] = useState(["JavaScript", "HTML", "PHP", "Laravel"]);
-  const [generalOptions] = useState(["Geography", "History", "Science & Nature", "Science: Computers", "Animals"]);
-  const [difficulty, setDifficulty] = useState("");
-  const [numOfQuestions, setNumOfQuestions] = useState("");
-  const [topic, setTopic] = useState(0);
+  const [codeOptions] = useState(['JavaScript', 'HTML', 'PHP', 'Laravel']);
+  const [generalOptions] = useState(['Geography', 'History', 'Science & Nature', 'Science: Computers', 'Animals']);
+  const [difficulty, setDifficulty] = useState('' as string);
+  const [numOfQuestions, setNumOfQuestions] = useState(0 as number);
+  const [topic, setTopic] = useState<string | number>('');
 
-  const convertTopicToNumber = (topic: string) => {
+  const convertTopicToNumber = (topic: number)=> {
     const lookup: Lookup = {
       Geography: 22,
       History: 23,
-      "Science & Nature": 17,
-      "Science: Computers": 18,
-      Animals: 27,
+      'Science & Nature': 17,
+      'Science: Computers': 18,
+      Animals: 27
     };
-    if (triviaType === "generalized") {
+    if (triviaType === 'generalized') {
       setTopic(lookup[topic]);
     } else {
       setTopic(topic);
@@ -40,14 +40,14 @@ const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: F
   };
 
   const getQuestions = () => {
-    if (triviaType === "programming") {
+    if (triviaType === 'programming') {
       fetchCodingData(difficulty, numOfQuestions, topic)
-        .then((data) => addQuestions(data))
-        .catch((error) => console.log(error));
+        .then(data => addQuestions(data))
+        .catch(error => console.log(error));
     } else {
       fetchGeneralData(numOfQuestions, topic, difficulty.toLowerCase())
-        .then((data) => addQuestions(data))
-        .catch((error) => console.log(error));
+        .then(data => addQuestions(data))
+        .catch(error => console.log(error));
     }
   };
 
@@ -58,26 +58,26 @@ const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: F
         <div className="form-selections">
           <Row>
             <Col>
-              <div className="topic" style={{marginBottom: "2rem"}} >
+              <div className="topic" style={{marginBottom: '2rem'}} >
                 <h2 className="topic-title">Choose a Topic</h2>
                 <Dropdown
                   className="topic-dropdown"
                   options={
-                    triviaType === "programming"
+                    triviaType === 'programming'
                       ? codeOptions
                       : generalOptions
                   }
-                  onSelect={(selection) => convertTopicToNumber(selection.value)}
+                  onSelect={selection => convertTopicToNumber(selection.value)}
                 />
               </div>
             </Col>
             <Col>
-              <div className="difficulty" style={{marginBottom: "2rem"}}>
+              <div className="difficulty" style={{marginBottom: '2rem'}}>
                 <h2 className="difficulty-title">Choose a Difficulty</h2>
                 <Dropdown
                   className="difficulty-dropdown"
-                  options={["Easy", "Medium", "Hard"]}
-                  onSelect={(selection) => setDifficulty(selection.value)}
+                  options={['Easy', 'Medium', 'Hard']}
+                  onSelect={selection => setDifficulty(selection.value)}
                 />
               </div>
             </Col>
@@ -87,7 +87,7 @@ const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: F
                 <Dropdown
                   className="numQuestions-dropdown"
                   options={[5, 10, 15]}
-                  onSelect={(value) => setNumOfQuestions(value.value)}
+                  onSelect={value => setNumOfQuestions(value.value)}
                 />
               </div>
             </Col>
@@ -95,10 +95,10 @@ const Form = ({ triviaType, fetchCodingData, fetchGeneralData, addQuestions }: F
         </div>
         <nav className="form-nav">
           <Row >
-            <Col sm={1} md={4} style={{ marginBottom: "2rem" }}>
+            <Col sm={1} md={4} style={{ marginBottom: '2rem' }}>
               <NavLink className="trivia-selection" to="/">Trivia Selection</NavLink>
             </Col>
-            <Col sm={1} md={4} style={{ marginBottom: "2rem" }}>
+            <Col sm={1} md={4} style={{ marginBottom: '2rem' }}>
               <NavLink className="saved-questions" to="/saved-questions">View Saved Questions</NavLink>
             </Col>
             <Col sm={1} md={4}>
@@ -124,5 +124,5 @@ Form.propType = {
   numOfQuestions: PropTypes.string,
   topic: PropTypes.string,
   convertTopicToNumber: PropTypes.func.isRequired,
-  getQuestions: PropTypes.func.isRequired,
+  getQuestions: PropTypes.func.isRequired
 };

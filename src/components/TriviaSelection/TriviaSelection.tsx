@@ -1,11 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import PropTypes from "prop-types";
-import "./TriviaSelection.css";
+import PropTypes from 'prop-types';
+import './TriviaSelection.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 type TriviaSelectionProps = {
@@ -13,6 +12,15 @@ type TriviaSelectionProps = {
 };
 
 const TriviaSelection = ({ selectCategory }: TriviaSelectionProps) => {
+
+  const handleProgrammingClick = () => {
+    selectCategory('programming');
+  };
+
+  const handleGeneralClick = () => {
+    selectCategory('generalized');
+  };
+
   return (
     <Container fluid="md">
       <Row>
@@ -25,20 +33,20 @@ const TriviaSelection = ({ selectCategory }: TriviaSelectionProps) => {
                     variant="success"
                     className="button"
                     name="programming"
-                    onClick={() => selectCategory("programming")}
+                    onClick={handleProgrammingClick}
                   >
                     Programming
-                  </Button>{' '}
+                  </Button>
                 </Link>
                 <Link to="/form">
                   <Button
                     variant="success"
                     className="button"
                     name="generalized"
-                    onClick={() => selectCategory("generalized")}
+                    onClick={handleGeneralClick}
                   >
                     Generalized
-                  </Button>{' '}
+                  </Button>
                 </Link>
               <h2 className="app-message">
                 Test Your Knowledge on Programming and Other Trivia Topics
@@ -53,5 +61,5 @@ const TriviaSelection = ({ selectCategory }: TriviaSelectionProps) => {
 export default TriviaSelection;
 
 TriviaSelection.propTypes = {
-  selectCategory: PropTypes.func.isRequired,
+  selectCategory: PropTypes.func.isRequired
 };

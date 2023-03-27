@@ -1,8 +1,8 @@
-import { QuestionInterface } from "../../interfaces/interfaces";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import SavedQuestion from "../SavedQuestion/SavedQuestion";
-import "./SavedQuestionsContainer.css";
+import { QuestionInterface } from '../../interfaces/interfaces';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import SavedQuestion from '../SavedQuestion/SavedQuestion';
+import './SavedQuestionsContainer.css';
 
 type SavedQuestionsContainerProps = {
   savedQuestions: QuestionInterface[];
@@ -11,7 +11,7 @@ type SavedQuestionsContainerProps = {
 };
 
 const SavedQuestionsContainer = ({savedQuestions, removeQuestion, startReview}: SavedQuestionsContainerProps) => {
-  
+
   const savedQuestionsCards = savedQuestions.map((question, index) => {
     return (
       <SavedQuestion
@@ -43,7 +43,7 @@ const SavedQuestionsContainer = ({savedQuestions, removeQuestion, startReview}: 
           Form Page
         </NavLink>
         <>
-          {savedQuestions.length && (
+          {savedQuestions.length > 0 && (
             <NavLink className="review" to="/quiz" onClick={startReview}>
               Review Questions
             </NavLink>
@@ -59,5 +59,5 @@ export default SavedQuestionsContainer;
 SavedQuestionsContainer.propType = {
   savedQuestions: PropTypes.arrayOf(PropTypes.object),
   removeQuestion: PropTypes.func.isRequired,
-  startReview: PropTypes.func.isRequired,
+  startReview: PropTypes.func.isRequired
 };

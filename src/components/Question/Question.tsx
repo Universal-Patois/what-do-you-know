@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Question.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Question.css';
 
 type QuestionProps = {
-  id: number;
+  id: string;
   choices: string[];
   checkAnswer: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -12,14 +12,14 @@ const Question = ({ id, choices, checkAnswer }: QuestionProps) => {
   return (
     <div className="choice-container">
       {choices.map(
-        (choice, index) =>
+        choice =>
           choice && (
             <button
               id={id}
-              key={index}
+              key={choice}
               value={choice}
-              className={"choice-button"}
-              onClick={(event) => checkAnswer(event)}
+              className={'choice-button'}
+              onClick={event => checkAnswer(event)}
             >
               {choice}
             </button>
@@ -34,5 +34,5 @@ export default Question;
 Question.propType = {
   id: PropTypes.number,
   choices: PropTypes.arrayOf(PropTypes.string),
-  checkAnswer: PropTypes.func.isRequired,
+  checkAnswer: PropTypes.func.isRequired
 };

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./SavedQuestion.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './SavedQuestion.css';
 
 type SavedQuestionProps = {
   questionNumber: number;
@@ -15,7 +15,7 @@ const SavedQuestion = ({
   questionTopic,
   question,
   removeQuestion,
-  id,
+  id
 }: SavedQuestionProps) => {
   return (
     <div className="saved-question">
@@ -34,5 +34,5 @@ SavedQuestion.propType = {
   questionTopic: PropTypes.string,
   question: PropTypes.string,
   removeQuestion: PropTypes.func.isRequired,
-  id: PropTypes.number,
+  id: PropTypes.number
 };
