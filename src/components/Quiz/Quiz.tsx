@@ -39,7 +39,6 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
             {quizQuestions.map((question, index) => (
               <QuestionCard
                 questionNumber={index + 1}
-                question={question.question}
                 showQuestion={showQuestion}
                 id={question.id}
                 key={question.id}
@@ -97,11 +96,15 @@ const Quiz = ({ correctAnswer, currentQuestion, quizQuestions, showQuestion, sav
         </NavLink>
         {!submitted && (
           <>
-            <NavLink className="save" onClick={saveQuestion}>
+            <NavLink
+            className="save"
+            to="/quiz"
+            onClick={saveQuestion}>
               Save Question
             </NavLink>
             <NavLink
               className="results"
+              to="/quiz"
               onClick={() => setSubmitted(true)}
             >
               See Results

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Question.css';
 
 type QuestionProps = {
-  id: string;
+  id: number;
   choices: string[];
   checkAnswer: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -15,7 +15,7 @@ const Question = ({ id, choices, checkAnswer }: QuestionProps) => {
         choice =>
           choice && (
             <button
-              id={id}
+              id={String(id)}
               key={choice}
               value={choice}
               className={'choice-button'}
